@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Cyberpunk Mobile Dev</title>
+    <title>Sean Lloyd Harold Raquel - Developer Portfolio</title>
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net;
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        img-src 'self' data: https:;
+        connect-src 'self';
+        frame-ancestors 'self';
+        base-uri 'self';
+        form-action 'self';
+    ">
+    
+    <!-- SEO & Social Meta Tags -->
+    <meta name="description" content="Sean Lloyd Harold Raquel - Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
+    <meta name="keywords" content="Web Developer, Django Developer, Python Developer, Cybersecurity, AI Orchestration, Full Stack Developer">
+    <meta name="author" content="Sean Lloyd Harold Raquel">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Alpine.js Plugins -->
@@ -87,33 +113,45 @@
     <!-- Header -->
     <header x-data="{ scrolled: false, mobileMenu: false }"
             @scroll.window="scrolled = (window.pageYOffset > 20)"
-            :class="scrolled ? 'bg-cyber-black/90 border-b border-neon-green/30 backdrop-blur-md' : 'bg-transparent'"
+            :class="scrolled ? 'bg-cyber-black/95 border-b border-neon-green/30 backdrop-blur-md shadow-neon-sm' : 'bg-transparent'"
             class="fixed w-full top-0 z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-3 group cursor-pointer">
-                <div class="relative w-10 h-10 border border-neon-green rounded-full flex items-center justify-center overflow-hidden group-hover:shadow-neon transition-all duration-300">
-                    <img src="https://www.devportfoliotemplates.com/_next/image?url=%2Flogo%2Flogo-dark-rounded.png&w=64&q=75" class="w-full h-full object-cover opacity-80 mix-blend-screen" alt="Logo">
-                    <div class="absolute inset-0 bg-neon-green/20"></div>
+            <!-- Logo/Brand -->
+            <a href="#" class="flex items-center gap-3 group cursor-pointer">
+                <div class="relative w-10 h-10 border-2 border-neon-green rounded-lg flex items-center justify-center overflow-hidden group-hover:shadow-neon transition-all duration-300 bg-cyber-black">
+                    <span class="text-lg font-bold text-neon-green group-hover:scale-110 transition-transform">SLH</span>
                 </div>
-                <span class="text-xl font-bold tracking-tighter group-hover:text-white transition-colors">
-                    Dev<span class="text-white">Portfolio</span>_
+                <span class="text-xl font-bold tracking-tight group-hover:text-neon-green transition-colors hidden sm:block">
+                    <span class="text-white">Sean Lloyd Raquel</span><span class="text-neon-green">_</span>
                 </span>
-            </div>
+            </a>
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
-                <a href="#" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Templates</a>
-                <a href="#" class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all">
-                    Use Template - 50% Off
-                </a>
-                <a href="#" class="px-6 py-2 bg-neon-green text-black font-bold hover:bg-white hover:shadow-neon transition-all transform hover:-translate-y-1">
-                    Use Template
+                <a href="#projects" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Projects</a>
+                <a href="#skills" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Skills</a>
+                <a href="#process" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Process</a>
+                <a href="#contact" class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all">
+                    Contact Me
                 </a>
             </nav>
 
+            <!-- Social Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://github.com/komradkat" target="_blank" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                    <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
+                </a>
+                <a href="https://linkedin.com/in/seanlloydraquel" target="_blank" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                    <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
+                </a>
+                <a href="mailto:seanlloydraquel@gmail.com" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                    <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>
+                </a>
+            </div>
+
             <!-- Mobile Menu Button -->
             <button @click="mobileMenu = !mobileMenu" class="md:hidden text-neon-green focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
+                <i class="fas" :class="mobileMenu ? 'fa-times' : 'fa-bars'" class="text-2xl"></i>
             </button>
         </div>
 
@@ -125,10 +163,24 @@
              x-transition:leave="transition ease-in duration-150"
              x-transition:leave-start="opacity-100 translate-y-0"
              x-transition:leave-end="opacity-0 -translate-y-4"
-             class="md:hidden absolute top-full left-0 w-full bg-cyber-black border-b border-neon-green p-4 flex flex-col gap-4 shadow-neon">
-             <a href="#" class="hover:text-white">Templates</a>
-             <a href="#" class="hover:text-white">Use Template - 50% Off</a>
-             <a href="#" class="bg-neon-green text-black font-bold py-2 text-center">Use Template</a>
+             class="md:hidden absolute top-full left-0 w-full bg-cyber-black/95 border-b border-neon-green backdrop-blur-md p-6 flex flex-col gap-4 shadow-neon">
+             <a href="#projects" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Projects</a>
+             <a href="#skills" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Skills</a>
+             <a href="#process" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Process</a>
+             <a href="#contact" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Contact</a>
+             
+             <!-- Social Links (Mobile) -->
+             <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
+                <a href="https://github.com/komradkat" target="_blank" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/seanlloydraquel" target="_blank" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:seanlloydraquel@gmail.com" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                    <i class="fas fa-envelope"></i>
+                </a>
+             </div>
         </div>
     </header>
 
@@ -139,35 +191,101 @@
             <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-[128px] opacity-5"></div>
 
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
-                <div class="space-y-6" x-data="{ text: '', fullText: 'Mobile App Developer', idx: 0 }" x-init="setInterval(() => { if (idx < fullText.length) { text += fullText.charAt(idx); idx++; } }, 100)">
+                <div class="space-y-6" x-data="{ 
+                    text: '', 
+                    roles: ['Web Developer', 'AI Orchestrator', 'Agentic Engineer', 'Cybersecurity Enthusiast'],
+                    currentRoleIndex: 0,
+                    idx: 0,
+                    isDeleting: false,
+                    typingSpeed: 100,
+                    deletingSpeed: 50,
+                    pauseTime: 2000
+                }" x-init="
+                    let timeout;
+                    const type = () => {
+                        const currentRole = roles[currentRoleIndex];
+                        
+                        if (!isDeleting && idx < currentRole.length) {
+                            text += currentRole.charAt(idx);
+                            idx++;
+                            timeout = setTimeout(type, typingSpeed);
+                        } else if (!isDeleting && idx === currentRole.length) {
+                            timeout = setTimeout(() => { isDeleting = true; type(); }, pauseTime);
+                        } else if (isDeleting && idx > 0) {
+                            text = currentRole.substring(0, idx - 1);
+                            idx--;
+                            timeout = setTimeout(type, deletingSpeed);
+                        } else if (isDeleting && idx === 0) {
+                            isDeleting = false;
+                            currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+                            timeout = setTimeout(type, typingSpeed);
+                        }
+                    };
+                    type();
+                ">
                     <p class="text-neon-green text-lg tracking-widest uppercase border-l-4 border-neon-green pl-4 animate-pulse">System Online</p>
                     <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
-                        John <span class="text-neon-green">Doe</span>
+                        Sean Lloyd Harold <span class="text-neon-green">Raquel</span>
                     </h1>
                     <h2 class="text-2xl md:text-4xl text-gray-400 font-bold h-10 typewriter" x-text="text"></h2>
                     <p class="text-gray-400 text-lg max-w-lg border border-neon-green/30 p-4 bg-neon-green/5 backdrop-blur-sm">
-                        > Crafting exceptional mobile experiences with React Native, Swift, and Flutter.
-                        <br>> Target: Exceptional UX/UI.
+                        > Crafting exceptional Web Applications with Django and HAT (HTMX, Alpine.js, TailwindCSS) Stack
+                        <br>> Security Focused Development.
                     </p>
 
                     <div class="flex flex-wrap gap-8 pt-8 border-t border-neon-green/20">
                         <div class="text-center group cursor-default">
-                            <span class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">12+</span>
-                            <span class="text-xs text-gray-500 uppercase tracking-wider">Apps Published</span>
+                            <span class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">10+</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Apps Developed</span>
                         </div>
                         <div class="text-center group cursor-default">
-                            <span class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">1M+</span>
-                            <span class="text-xs text-gray-500 uppercase tracking-wider">Downloads</span>
+                            <span class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">5+</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Years of Experience</span>
                         </div>
                         <div class="text-center group cursor-default">
-                            <span class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">4.8</span>
-                            <span class="text-xs text-gray-500 uppercase tracking-wider">Rating</span>
+                            <span class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">2</span>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Startup Associate</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Abstract Code/Visual Element -->
-                <div class="hidden md:block relative group">
+                <div class="hidden md:block relative group" x-data="{
+                    codeText: '',
+                    codeSnippets: [
+                        `# Django Model\nclass Project(models.Model):\n    title = models.CharField(\n        max_length=200\n    )\n    tech_stack = models.JSONField()\n    deployed = models.BooleanField(\n        default=True\n    )`,
+                        `# Django View\ndef api_endpoint(request):\n    data = Project.objects.filter(\n        deployed=True\n    )\n    serializer = ProjectSerializer(\n        data, many=True\n    )\n    return Response(\n        serializer.data\n    )`,
+                        `# REST API Serializer\nclass ProjectSerializer(\n    serializers.ModelSerializer\n):\n    class Meta:\n        model = Project\n        fields = '__all__'\n        \n    def validate(self, data):\n        return data`
+                    ],
+                    currentSnippetIndex: 0,
+                    charIndex: 0,
+                    isDeleting: false,
+                    typeSpeed: 30,
+                    deleteSpeed: 15,
+                    pauseDuration: 3000
+                }" x-init="
+                    let timeout;
+                    const animate = () => {
+                        const currentSnippet = codeSnippets[currentSnippetIndex];
+                        
+                        if (!isDeleting && charIndex < currentSnippet.length) {
+                            codeText += currentSnippet.charAt(charIndex);
+                            charIndex++;
+                            timeout = setTimeout(animate, typeSpeed);
+                        } else if (!isDeleting && charIndex === currentSnippet.length) {
+                            timeout = setTimeout(() => { isDeleting = true; animate(); }, pauseDuration);
+                        } else if (isDeleting && charIndex > 0) {
+                            codeText = currentSnippet.substring(0, charIndex - 1);
+                            charIndex--;
+                            timeout = setTimeout(animate, deleteSpeed);
+                        } else if (isDeleting && charIndex === 0) {
+                            isDeleting = false;
+                            currentSnippetIndex = (currentSnippetIndex + 1) % codeSnippets.length;
+                            timeout = setTimeout(animate, typeSpeed);
+                        }
+                    };
+                    animate();
+                ">
                     <div class="absolute inset-0 bg-neon-green blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
                     <div class="relative bg-cyber-gray border border-neon-green p-6 rounded-lg shadow-neon transform group-hover:scale-105 transition-transform duration-500">
                         <div class="flex gap-2 mb-4">
@@ -175,22 +293,7 @@
                             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
                             <div class="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
-                        <pre class="text-xs text-neon-green overflow-hidden">
-<code>class Developer extends Human {
-  constructor() {
-    this.skills = [
-      'React Native',
-      'Swift',
-      'Flutter'
-    ];
-    this.passion = '100%';
-  }
-
-  function deploy() {
-    return "Awesome App";
-  }
-}</code>
-                        </pre>
+                        <pre class="text-xs text-neon-green overflow-hidden min-h-[200px]"><code x-text="codeText"></code></pre>
                     </div>
                 </div>
             </div>
@@ -200,28 +303,53 @@
         <section class="py-20 bg-cyber-gray/50 border-y border-neon-green/10">
             <div class="container mx-auto px-6 text-center">
                 <span class="inline-block px-3 py-1 border border-neon-green text-xs uppercase tracking-widest mb-4 hover:bg-neon-green hover:text-black transition-colors cursor-crosshair">Featured Project</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-2">FitTracker <span class="text-neon-green">Pro</span></h2>
-                <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Your Personal Fitness Companion. Optimized for performance and user engagement.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-2">BIMS-<span class="text-neon-green">Pro</span></h2>
+                <p class="text-gray-400 mb-8 max-w-3xl mx-auto">Barangay Information Management System built with Django and the HAT Stack (HTMX, Alpine.js, TailwindCSS). A modern, security-focused government application designed for speed, data integrity, and exceptional UX.</p>
 
+                <!-- Tech Stack Summary -->
+                <div class="max-w-4xl mx-auto mb-12 bg-cyber-black border border-neon-green/30 p-6 text-left">
+                    <h3 class="text-xl font-bold text-neon-green mb-4 text-center">Core Technology Stack</h3>
+                    <div class="grid md:grid-cols-2 gap-6 text-sm">
+                        <div>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Backend: Django 5.x + PostgreSQL</p>
+                            <p class="text-gray-400 pl-4">Python-powered logic with relational database for unlimited records and concurrent access</p>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Frontend: HTMX + Alpine.js</p>
+                            <p class="text-gray-400 pl-4">Stutter-free SPA experience without heavy JavaScript frameworks</p>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Styling: Tailwind + DaisyUI</p>
+                            <p class="text-gray-400 pl-4">Professional, mobile-friendly government-ready UI components</p>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Security: Cryptography + Audit Logs</p>
+                            <p class="text-gray-400 pl-4">Hardware-locked licensing and complete change tracking</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Features -->
                 <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
                     <div class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
-                        <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">4.9</span>
-                        <span class="text-sm text-gray-500 uppercase">Rating</span>
+                        <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">⚡</span>
+                        <span class="text-sm text-gray-500 uppercase">Fast Development</span>
                     </div>
                     <div class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
-                        <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">500K+</span>
-                        <span class="text-sm text-gray-500 uppercase">Downloads</span>
+                        <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">🔒</span>
+                        <span class="text-sm text-gray-500 uppercase">Security First</span>
                     </div>
                     <div class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
-                        <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">200K+</span>
-                        <span class="text-sm text-gray-500 uppercase">Active Users</span>
+                        <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">📈</span>
+                        <span class="text-sm text-gray-500 uppercase">Scalable</span>
                     </div>
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-4">
-                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">Cross-Platform</span>
-                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">Real-time Sync</span>
-                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">Offline Mode</span>
+                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">Django ORM</span>
+                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">HTMX AJAX</span>
+                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">WeasyPrint PDF</span>
+                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">QR Verification</span>
                 </div>
             </div>
         </section>
@@ -234,73 +362,187 @@
                     <p class="text-gray-400">Loading skills database...</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-12" x-data="{ shown: false }" x-intersect.once="shown = true">
-                    <!-- Core Tech -->
-                    <div class="space-y-8">
-                        <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Core Technologies</h3>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Programming Languages -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Programming Languages</h3>
 
-                        <!-- Skill Item -->
-                        <div class="group">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span class="text-white group-hover:text-neon-green transition-colors">React Native</span>
-                                <span class="text-neon-green">95%</span>
+                        <!-- Python -->
+                        <div class="border border-neon-green/30 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fab fa-python text-2xl text-neon-green"></i>
+                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">Python</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                </div>
                             </div>
-                            <div class="h-2 bg-gray-800 w-full overflow-hidden">
-                                <div class="h-full bg-neon-green shadow-[0_0_10px_#00ff00] transition-all duration-1000 ease-out transform origin-left"
-                                     :style="shown ? 'width: 95%' : 'width: 0%'"></div>
-                            </div>
-                            <div class="flex gap-4 mt-2 text-xs text-gray-500">
-                                <span>Cross-Platform</span>
-                                <span>Expert Level</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Django</span>
+                                <span class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Backend</span>
                             </div>
                         </div>
 
-                        <div class="group">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span class="text-white group-hover:text-neon-green transition-colors">Swift</span>
-                                <span class="text-neon-green">90%</span>
+                        <!-- C++ -->
+                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-code text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">C++</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+                                </div>
                             </div>
-                            <div class="h-2 bg-gray-800 w-full overflow-hidden">
-                                <div class="h-full bg-neon-green shadow-[0_0_10px_#00ff00] transition-all duration-1000 delay-100 ease-out transform origin-left"
-                                     :style="shown ? 'width: 90%' : 'width: 0%'"></div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Systems</span>
                             </div>
                         </div>
 
-                        <div class="group">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span class="text-white group-hover:text-neon-green transition-colors">Kotlin</span>
-                                <span class="text-neon-green">85%</span>
+                        <!-- Java -->
+                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fab fa-java text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">Java</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+                                </div>
                             </div>
-                            <div class="h-2 bg-gray-800 w-full overflow-hidden">
-                                <div class="h-full bg-neon-green shadow-[0_0_10px_#00ff00] transition-all duration-1000 delay-200 ease-out transform origin-left"
-                                     :style="shown ? 'width: 85%' : 'width: 0%'"></div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">OOP</span>
+                            </div>
+                        </div>
+
+                        <!-- VB.NET -->
+                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-window-maximize text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">VB.NET</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PHP -->
+                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fab fa-php text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">PHP</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Specialized Skills -->
-                    <div class="space-y-8">
-                        <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Specialized Modules</h3>
+                    <!-- Web Technologies -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Web Technologies</h3>
 
-                        <div class="group">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span class="text-white group-hover:text-neon-green transition-colors">Firebase</span>
-                                <span class="text-neon-green">88%</span>
+                        <!-- Django -->
+                        <div class="border border-neon-green/30 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-server text-2xl text-neon-green"></i>
+                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">Django</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                </div>
                             </div>
-                            <div class="h-2 bg-gray-800 w-full overflow-hidden">
-                                <div class="h-full bg-neon-green shadow-[0_0_10px_#00ff00] transition-all duration-1000 delay-300 ease-out transform origin-left"
-                                     :style="shown ? 'width: 88%' : 'width: 0%'"></div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">ORM</span>
+                                <span class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">REST APIs</span>
+                                <span class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Templates</span>
                             </div>
                         </div>
 
-                        <div class="group">
-                            <div class="flex justify-between mb-2 text-sm">
-                                <span class="text-white group-hover:text-neon-green transition-colors">App Store Optimization</span>
-                                <span class="text-neon-green">85%</span>
+                        <!-- HTML/CSS -->
+                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fab fa-html5 text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">HTML/CSS</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+                                </div>
                             </div>
-                            <div class="h-2 bg-gray-800 w-full overflow-hidden">
-                                <div class="h-full bg-neon-green shadow-[0_0_10px_#00ff00] transition-all duration-1000 delay-400 ease-out transform origin-left"
-                                     :style="shown ? 'width: 85%' : 'width: 0%'"></div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Responsive</span>
+                            </div>
+                        </div>
+
+                        <!-- HTMX -->
+                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-bolt text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">HTMX</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Interactivity</span>
+                            </div>
+                        </div>
+
+                        <!-- TailwindCSS -->
+                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-palette text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">TailwindCSS</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -311,44 +553,46 @@
         <!-- Featured Apps List -->
         <section class="py-20 bg-cyber-gray/30">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-white mb-12 text-center">Deployed <span class="text-neon-green">Applications</span></h2>
+                <h2 class="text-3xl font-bold text-white mb-12 text-center">Developed <span class="text-neon-green">Applications</span></h2>
 
                 <div class="grid md:grid-cols-2 gap-8">
                     <!-- App Card 1 -->
                     <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
                         <div class="absolute top-0 right-0 bg-neon-green/20 text-neon-green px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">Featured</div>
-                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">FitTracker Pro</h3>
-                        <p class="text-gray-400 mb-6 text-sm">Comprehensive fitness tracking with real-time biometric analysis.</p>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">Gym Management System</h3>
+                        <p class="text-gray-400 mb-6 text-sm">Comprehensive fitness center management platform with member tracking, billing, and attendance monitoring.</p>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">React Native</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">TypeScript</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Redux</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">PostgreSQL</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">HTMX</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">TailwindCSS</span>
                         </div>
 
                         <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
-                            <span class="flex items-center gap-1"><i class="fas fa-star text-yellow-500"></i> 4.8</span>
-                            <span class="flex items-center gap-1"><i class="fas fa-download"></i> 100K+</span>
-                            <span class="flex items-center gap-1"><i class="fab fa-apple"></i> iOS & Android</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-dumbbell text-neon-green"></i> Fitness</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-users"></i> Member Portal</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-chart-line"></i> Analytics</span>
                         </div>
                     </div>
 
                     <!-- App Card 2 -->
                     <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-yellow-500/20 text-yellow-500 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">New</div>
-                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">CryptoWatch</h3>
-                        <p class="text-gray-400 mb-6 text-sm">Real-time decentralized currency tracking and portfolio management.</p>
+                        <div class="absolute top-0 right-0 bg-blue-500/20 text-blue-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">Election</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">VoteWise</h3>
+                        <p class="text-gray-400 mb-6 text-sm">School student government election management system with secure voting, candidate profiles, and real-time results.</p>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Flutter</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Dart</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Firebase</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Python</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Alpine.js</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">TailwindCSS</span>
                         </div>
 
                         <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
-                            <span class="flex items-center gap-1"><i class="fas fa-star text-yellow-500"></i> 4.7</span>
-                            <span class="flex items-center gap-1"><i class="fas fa-download"></i> 50K+</span>
-                            <span class="flex items-center gap-1"><i class="fab fa-apple"></i> iOS & Android</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-vote-yea text-blue-400"></i> Voting</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-shield-alt"></i> Secure</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-school"></i> Education</span>
                         </div>
                     </div>
                 </div>
@@ -358,44 +602,88 @@
         <!-- Process -->
         <section class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-white mb-4 text-center">Execution <span class="text-neon-green">Process</span></h2>
-                <p class="text-center text-gray-400 mb-16 max-w-xl mx-auto">Systematic approach to generating high-quality executables.</p>
+                <h2 class="text-3xl font-bold text-white mb-4 text-center">My <span class="text-neon-green">Development Process</span></h2>
+                <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">AI-accelerated development with human-enforced security oversight. Maximizing speed and modernity while maintaining strict cybersecurity standards.</p>
 
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Step 1 -->
-                    <div class="relative p-6 border-l-2 border-gray-800 hover:border-neon-green transition-colors duration-300 pl-8 group">
-                        <div class="absolute -left-[11px] top-6 w-5 h-5 bg-cyber-black border-2 border-gray-600 rounded-full group-hover:border-neon-green group-hover:bg-neon-green transition-all"></div>
-                        <span class="text-6xl font-bold text-gray-800 absolute top-0 right-0 -z-10 group-hover:text-gray-800/50 transition-colors">01</span>
-                        <h3 class="text-xl font-bold text-white mb-4 group-hover:translate-x-2 transition-transform">Ideation</h3>
-                        <ul class="text-sm text-gray-400 space-y-2 list-none">
-                            <li class="before:content-['>'] before:text-neon-green before:mr-2">Requirements Analysis</li>
-                            <li class="before:content-['>'] before:text-neon-green before:mr-2">Wireframe Architecture</li>
-                            <li class="before:content-['>'] before:text-neon-green before:mr-2">Prototype Compilation</li>
-                        </ul>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Phase 1 -->
+                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-neon-green/10 border border-neon-green rounded-full flex items-center justify-center animate-pulse">
+                                <i class="fas fa-robot text-neon-green"></i>
+                            </div>
+                            <span class="text-xs text-neon-green font-bold uppercase tracking-wider">Phase 01</span>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">AI Synthesis & Review</h3>
+                        <p class="text-sm text-gray-400 mb-4">AI proposes architecture from requirements. Manual security and scalability review before approval.</p>
+                        
+                        <div class="flex items-center gap-2 text-xs text-gray-500">
+                            <i class="fas fa-check-circle text-neon-green"></i>
+                            <span>Human-Verified</span>
+                        </div>
                     </div>
 
-                    <!-- Step 2 -->
-                    <div class="relative p-6 border-l-2 border-gray-800 hover:border-neon-green transition-colors duration-300 pl-8 group">
-                        <div class="absolute -left-[11px] top-6 w-5 h-5 bg-cyber-black border-2 border-gray-600 rounded-full group-hover:border-neon-green group-hover:bg-neon-green transition-all"></div>
-                        <span class="text-6xl font-bold text-gray-800 absolute top-0 right-0 -z-10 group-hover:text-gray-800/50 transition-colors">02</span>
-                        <h3 class="text-xl font-bold text-white mb-4 group-hover:translate-x-2 transition-transform">Development</h3>
-                        <ul class="text-sm text-gray-400 space-y-2 list-none">
-                            <li class="before:content-['>'] before:text-neon-green before:mr-2">Tech Stack Init</li>
-                            <li class="before:content-['>'] before:text-neon-green before:mr-2">Agile Sprints</li>
-                            <li class="before:content-['>'] before:text-neon-green before:mr-2">Code Review & Optimization</li>
-                        </ul>
+                    <!-- Phase 2 -->
+                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group" style="animation-delay: 150ms">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-blue-500/10 border border-blue-500 rounded-full flex items-center justify-center animate-pulse">
+                                <i class="fas fa-cubes text-blue-400"></i>
+                            </div>
+                            <span class="text-xs text-blue-400 font-bold uppercase tracking-wider">Phase 02</span>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">Atomic Phasing</h3>
+                        <p class="text-sm text-gray-400 mb-4">Agent breaks architecture into decoupled modules. Prevents lateral movement and enables isolated testing.</p>
+                        
+                        <div class="flex items-center gap-2 text-xs text-gray-500">
+                            <i class="fas fa-shield-alt text-blue-400"></i>
+                            <span>Security-First</span>
+                        </div>
                     </div>
 
-                    <!-- Step 3 -->
-                    <div class="relative p-6 border-l-2 border-gray-800 hover:border-neon-green transition-colors duration-300 pl-8 group">
-                        <div class="absolute -left-[11px] top-6 w-5 h-5 bg-cyber-black border-2 border-gray-600 rounded-full group-hover:border-neon-green group-hover:bg-neon-green transition-all"></div>
-                        <span class="text-6xl font-bold text-gray-800 absolute top-0 right-0 -z-10 group-hover:text-gray-800/50 transition-colors">03</span>
-                        <h3 class="text-xl font-bold text-white mb-4 group-hover:translate-x-2 transition-transform">Launch</h3>
-                        <ul class="text-sm text-gray-400 space-y-2 list-none">
-                            <li class="before:content-['>'] before:text-neon-green before:mr-2">Store Optimization</li>
-                            <li class="before:content-['>'] before:text-neon-green before:mr-2">Analytics Integration</li>
-                            <li class="before:content-['>'] before:text-neon-green before:mr-2">Live Deployment</li>
-                        </ul>
+                    <!-- Phase 3 -->
+                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group" style="animation-delay: 300ms">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-yellow-500/10 border border-yellow-500 rounded-full flex items-center justify-center animate-pulse">
+                                <i class="fas fa-user-shield text-yellow-400"></i>
+                            </div>
+                            <span class="text-xs text-yellow-400 font-bold uppercase tracking-wider">Phase 03</span>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">Hybrid Auditing</h3>
+                        <p class="text-sm text-gray-400 mb-4">Manual function checks documented, then fed to security agent for automated vulnerability assessment.</p>
+                        
+                        <div class="flex items-center gap-2 text-xs text-gray-500">
+                            <i class="fas fa-search text-yellow-400"></i>
+                            <span>Dual-Layer</span>
+                        </div>
+                    </div>
+
+                    <!-- Phase 4 -->
+                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group" style="animation-delay: 450ms">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-purple-500/10 border border-purple-500 rounded-full flex items-center justify-center animate-pulse">
+                                <i class="fas fa-sync-alt text-purple-400"></i>
+                            </div>
+                            <span class="text-xs text-purple-400 font-bold uppercase tracking-wider">Phase 04</span>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">Iterative Testing</h3>
+                        <p class="text-sm text-gray-400 mb-4">Continuous loop of manual and agent-led testing after every feature to maintain system integrity.</p>
+                        
+                        <div class="flex items-center gap-2 text-xs text-gray-500">
+                            <i class="fas fa-infinity text-purple-400"></i>
+                            <span>Continuous</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -417,7 +705,7 @@
                         </div>
                         <div>
                             <p class="text-xs text-gray-500 uppercase">Location</p>
-                            <p>San Francisco, CA (Server 1)</p>
+                            <p>Tacloban City, Leyte, Philippines</p>
                         </div>
                     </div>
                 </div>
@@ -475,7 +763,7 @@
 
     <footer class="bg-cyber-black border-t border-gray-800 py-8 text-center text-gray-500 text-sm">
         <div class="container mx-auto px-6">
-            <p>&copy; 2023 John Doe. All rights reserved. System V.2.0</p>
+            <p>&copy; 2026 Sean Lloyd Harold Raquel. All rights reserved. System v1.0</p>
         </div>
     </footer>
 </body>
