@@ -103,12 +103,58 @@
 </head>
 <body class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden">
 
-    <!-- Matrix Background Effect (Optional/Simple CSS Canvas overlay could be added later, keeping it clean for now) -->
-    <div class="fixed inset-0 pointer-events-none z-[-1] opacity-20"
-         style="background-image: linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
-         linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
-         background-size: 20px 20px;">
-    </div>
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-rain" class="fixed inset-0 pointer-events-none z-[-1] opacity-20"></canvas>
+
+    <script>
+        const canvas = document.getElementById('matrix-rain');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const columns = Math.floor(width / 20);
+        const yPositions = Array(columns).fill(0);
+
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, width, height);
+
+        function matrix() {
+            ctx.fillStyle = '#0001';
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.fillStyle = '#0f0';
+            ctx.font = '15pt monospace';
+
+            yPositions.forEach((y, index) => {
+                const text = String.fromCharCode(Math.random() * 128);
+                const x = index * 20;
+                ctx.fillText(text, x, y);
+
+                if (y > 100 + Math.random() * 10000) {
+                    yPositions[index] = 0;
+                } else {
+                    yPositions[index] = y + 20;
+                }
+            });
+        }
+
+        setInterval(matrix, 50);
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            // Recalculate columns on resize
+            const newColumns = Math.floor(width / 20);
+            // Properly resize the positions array
+            if (newColumns > yPositions.length) {
+               // Append new columns starting at random Y positions
+               for (let i = yPositions.length; i < newColumns; i++) {
+                   yPositions.push(Math.random() * height); 
+               }
+            }
+        });
+    </script>
 
     <!-- Header -->
     <header x-data="{ scrolled: false, mobileMenu: false }"
@@ -122,7 +168,7 @@
                     <span class="text-lg font-bold text-neon-green group-hover:scale-110 transition-transform">SLH</span>
                 </div>
                 <span class="text-xl font-bold tracking-tight group-hover:text-neon-green transition-colors hidden sm:block">
-                    <span class="text-white">Sean Lloyd Raquel</span><span class="text-neon-green">_</span>
+                    <span class="text-white">Sean Lloyd Harold Raquel</span><span class="text-neon-green">_</span>
                 </span>
             </a>
 
@@ -593,6 +639,83 @@
                             <span class="flex items-center gap-1"><i class="fas fa-vote-yea text-blue-400"></i> Voting</span>
                             <span class="flex items-center gap-1"><i class="fas fa-shield-alt"></i> Secure</span>
                             <span class="flex items-center gap-1"><i class="fas fa-school"></i> Education</span>
+                        </div>
+                    </div>
+
+                    <!-- App Card 3 -->
+                    <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-purple-500/20 text-purple-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">Zero-Trust</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">Substrata By Nexus Security</h3>
+                        <p class="text-gray-400 mb-6 text-sm">High-security, zero-trust, TCTS (Thick Client, Thin Server) Model messaging platform with end-to-end encryption and blind relay architecture.</p>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Python</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django Channels</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Cryptography</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">PyWebView</span>
+                        </div>
+
+                        <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
+                            <span class="flex items-center gap-1"><i class="fas fa-user-secret text-purple-400"></i> Privacy</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-lock"></i> E2E Encrypted</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-network-wired"></i> WebSockets</span>
+                        </div>
+                    </div>
+
+                    <!-- App Card 4 -->
+                    <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-orange-500/20 text-orange-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">Marketplace</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">AutoLinkX</h3>
+                        <p class="text-gray-400 mb-6 text-sm">Automotive marketplace platform for browsing, listing, and purchasing vehicles with user authentication.</p>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">SQLite</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Bootstrap</span>
+                        </div>
+
+                        <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
+                            <span class="flex items-center gap-1"><i class="fas fa-car text-orange-400"></i> Listings</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-users"></i> Accounts</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-search"></i> Search</span>
+                        </div>
+                    </div>
+
+                    <!-- App Card 5 -->
+                    <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-cyan-500/20 text-cyan-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">DevOps</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">HomeLab Master Directory</h3>
+                        <p class="text-gray-400 mb-6 text-sm">Lightweight Django service dashboard with automatic LAN vs Tailscale routing and real-time status monitoring.</p>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Docker</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Tailscale</span>
+                        </div>
+
+                        <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
+                            <span class="flex items-center gap-1"><i class="fas fa-network-wired text-cyan-400"></i> Routing</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-server"></i> Monitoring</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-container-storage"></i> Docker</span>
+                        </div>
+                    </div>
+
+                    <!-- App Card 6 -->
+                    <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-red-500/20 text-red-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">Security</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">HomeLab Command Center</h3>
+                        <p class="text-gray-400 mb-6 text-sm">Centralized server monitoring application with real-time health tracking, security alerting, and Discord notifications.</p>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Discord API</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">HTMX</span>
+                        </div>
+
+                        <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
+                            <span class="flex items-center gap-1"><i class="fas fa-shield-virus text-red-400"></i> Security</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-bell"></i> Alerts</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-chart-area"></i> Metrics</span>
                         </div>
                     </div>
                 </div>
