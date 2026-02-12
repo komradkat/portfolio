@@ -101,7 +101,7 @@
         }
     </style>
 </head>
-<body class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden">
+<body x-data class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden">
 
     <!-- Matrix Rain Background -->
     <canvas id="matrix-rain" class="fixed inset-0 pointer-events-none z-[-1] opacity-20"></canvas>
@@ -165,32 +165,32 @@
             <!-- Logo/Brand -->
             <a href="#" class="flex items-center gap-3 group cursor-pointer">
                 <div class="relative w-10 h-10 border-2 border-neon-green rounded-lg flex items-center justify-center overflow-hidden group-hover:shadow-neon transition-all duration-300 bg-cyber-black">
-                    <span class="text-lg font-bold text-neon-green group-hover:scale-110 transition-transform">SLH</span>
+                    <span class="text-lg font-bold text-neon-green group-hover:scale-110 transition-transform" x-text="$store.config.data.personal.initials"></span>
                 </div>
                 <span class="text-xl font-bold tracking-tight group-hover:text-neon-green transition-colors hidden sm:block">
-                    <span class="text-white">Sean Lloyd Harold Raquel</span><span class="text-neon-green">_</span>
+                    <span class="text-white" x-text="$store.config.data.personal.name"></span><span class="text-neon-green">_</span>
                 </span>
             </a>
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
-                <a href="#projects" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Projects</a>
-                <a href="#skills" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Skills</a>
-                <a href="#process" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Process</a>
-                <a href="#contact" class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all">
+                <a :href="$store.config.data.navigation.projects" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Projects</a>
+                <a :href="$store.config.data.navigation.skills" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Skills</a>
+                <a :href="$store.config.data.navigation.process" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Process</a>
+                <a :href="$store.config.data.navigation.contact" class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all">
                     Contact Me
                 </a>
             </nav>
 
             <!-- Social Links (Desktop) -->
             <div class="hidden md:flex items-center gap-4">
-                <a href="https://github.com/komradkat" target="_blank" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="$store.config.data.social.github" target="_blank" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a href="https://linkedin.com/in/seanlloydraquel" target="_blank" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="$store.config.data.social.linkedin" target="_blank" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a href="mailto:seanlloydraquel@gmail.com" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="'mailto:' + $store.config.data.personal.email" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>
                 </a>
             </div>
@@ -210,20 +210,20 @@
              x-transition:leave-start="opacity-100 translate-y-0"
              x-transition:leave-end="opacity-0 -translate-y-4"
              class="md:hidden absolute top-full left-0 w-full bg-cyber-black/95 border-b border-neon-green backdrop-blur-md p-6 flex flex-col gap-4 shadow-neon">
-             <a href="#projects" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Projects</a>
-             <a href="#skills" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Skills</a>
-             <a href="#process" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Process</a>
-             <a href="#contact" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Contact</a>
+             <a :href="$store.config.data.navigation.projects" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Projects</a>
+             <a :href="$store.config.data.navigation.skills" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Skills</a>
+             <a :href="$store.config.data.navigation.process" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Process</a>
+             <a :href="$store.config.data.navigation.contact" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Contact</a>
              
              <!-- Social Links (Mobile) -->
              <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
-                <a href="https://github.com/komradkat" target="_blank" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                <a :href="$store.config.data.social.github" target="_blank" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.com/in/seanlloydraquel" target="_blank" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                <a :href="$store.config.data.social.linkedin" target="_blank" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="mailto:seanlloydraquel@gmail.com" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                <a :href="'mailto:' + $store.config.data.personal.email" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fas fa-envelope"></i>
                 </a>
              </div>
@@ -232,7 +232,7 @@
 
     <main class="pt-24">
         <!-- Hero Section -->
-        <section class="min-h-screen flex items-center justify-center relative overflow-hidden" x-data>
+        <section class="min-h-[calc(100vh-6rem)] flex items-center justify-center relative overflow-hidden" x-data>
             <div class="absolute top-0 right-0 w-96 h-96 bg-neon-green rounded-full mix-blend-multiply filter blur-[128px] opacity-10 animate-pulse"></div>
             <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-[128px] opacity-5"></div>
 
@@ -271,7 +271,7 @@
                 ">
                     <p class="text-neon-green text-lg tracking-widest uppercase border-l-4 border-neon-green pl-4 animate-pulse">System Online</p>
                     <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
-                        Sean Lloyd Harold <span class="text-neon-green">Raquel</span>
+                        <span x-text="$store.config.data.personal.name.split(' ').slice(0, -1).join(' ')"></span> <span class="text-neon-green" x-text="$store.config.data.personal.name.split(' ').slice(-1)"></span>
                     </h1>
                     <h2 class="text-2xl md:text-4xl text-gray-400 font-bold h-10 typewriter" x-text="text"></h2>
                     <p class="text-gray-400 text-lg max-w-lg border border-neon-green/30 p-4 bg-neon-green/5 backdrop-blur-sm">
@@ -295,15 +295,33 @@
                     </div>
                 </div>
 
-                <!-- Abstract Code/Visual Element -->
+                <!-- Abstract Code Visual -->
                 <div class="hidden md:block relative group" x-data="{
                     codeText: '',
-                    codeSnippets: [
-                        `# Django Model\nclass Project(models.Model):\n    title = models.CharField(\n        max_length=200\n    )\n    tech_stack = models.JSONField()\n    deployed = models.BooleanField(\n        default=True\n    )`,
-                        `# Django View\ndef api_endpoint(request):\n    data = Project.objects.filter(\n        deployed=True\n    )\n    serializer = ProjectSerializer(\n        data, many=True\n    )\n    return Response(\n        serializer.data\n    )`,
-                        `# REST API Serializer\nclass ProjectSerializer(\n    serializers.ModelSerializer\n):\n    class Meta:\n        model = Project\n        fields = '__all__'\n        \n    def validate(self, data):\n        return data`
+                    windowTitle: 'main.py',
+                    snippets: [
+                        {
+                            lang: 'python',
+                            title: 'main.py',
+                            code: `# Python 3.12\nclass SecurityAgent:\n    def __init__(self):\n        self.encryption = 'AES-256'\n        self.status = 'Active'\n\n    async def monitor(self):\n        await self.connect_stream()\n        return True`
+                        },
+                        {
+                            lang: 'cpp',
+                            title: 'system.cpp',
+                            code: `// C++ 20\n#include <iostream>\n\nclass SystemCore {\npublic:\n    void optimize_kernel() {\n        // Low-level optimization\n        std::cout << 'Kernel Active';\n    }\n};`
+                        },
+                        {
+                            lang: 'java',
+                            title: 'Service.java',
+                            code: `// Java 21\npublic class MicroService {\n    @Autowired\n    private SecurityConfig config;\n\n    public void init() {\n        System.out.println('Service Ready');\n    }\n}`
+                        },
+                        {
+                            lang: 'php',
+                            title: 'api.php',
+                            code: `<?php\n// Lavender Framework\nnamespace App\\Controllers;\n\nclass SecureAPI {\n    public function handleRequest() {\n        return json_encode(['status' => 200]);\n    }\n}`
+                        }
                     ],
-                    currentSnippetIndex: 0,
+                    currentIndex: 0,
                     charIndex: 0,
                     isDeleting: false,
                     typeSpeed: 30,
@@ -312,21 +330,22 @@
                 }" x-init="
                     let timeout;
                     const animate = () => {
-                        const currentSnippet = codeSnippets[currentSnippetIndex];
+                        const currentSnippet = snippets[currentIndex];
+                        windowTitle = currentSnippet.title;
                         
-                        if (!isDeleting && charIndex < currentSnippet.length) {
-                            codeText += currentSnippet.charAt(charIndex);
+                        if (!isDeleting && charIndex < currentSnippet.code.length) {
+                            codeText += currentSnippet.code.charAt(charIndex);
                             charIndex++;
                             timeout = setTimeout(animate, typeSpeed);
-                        } else if (!isDeleting && charIndex === currentSnippet.length) {
+                        } else if (!isDeleting && charIndex === currentSnippet.code.length) {
                             timeout = setTimeout(() => { isDeleting = true; animate(); }, pauseDuration);
                         } else if (isDeleting && charIndex > 0) {
-                            codeText = currentSnippet.substring(0, charIndex - 1);
+                            codeText = currentSnippet.code.substring(0, charIndex - 1);
                             charIndex--;
                             timeout = setTimeout(animate, deleteSpeed);
                         } else if (isDeleting && charIndex === 0) {
                             isDeleting = false;
-                            currentSnippetIndex = (currentSnippetIndex + 1) % codeSnippets.length;
+                            currentIndex = (currentIndex + 1) % snippets.length;
                             timeout = setTimeout(animate, typeSpeed);
                         }
                     };
@@ -334,12 +353,19 @@
                 ">
                     <div class="absolute inset-0 bg-neon-green blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
                     <div class="relative bg-cyber-gray border border-neon-green p-6 rounded-lg shadow-neon transform group-hover:scale-105 transition-transform duration-500">
-                        <div class="flex gap-2 mb-4">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <!-- Window Controls -->
+                        <div class="flex items-center justify-between mb-4 border-b border-gray-700 pb-2">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-xs text-gray-400 font-mono" x-text="windowTitle"></div>
+                            <div class="w-8"></div> <!-- Spacer for centering -->
                         </div>
-                        <pre class="text-xs text-neon-green overflow-hidden min-h-[200px]"><code x-text="codeText"></code></pre>
+                        
+                        <!-- Code Area -->
+                        <pre class="text-xs text-neon-green overflow-hidden min-h-[200px] font-mono"><code x-text="codeText"></code></pre>
                     </div>
                 </div>
             </div>
@@ -820,7 +846,7 @@
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 class="text-4xl font-bold text-white mb-6">Initialize <br><span class="text-neon-green">Connection</span></h2>
-                    <p class="text-gray-400 mb-8">Ready to bring your mobile app idea to life? Specialized in creating polished, user-friendly mobile applications.</p>
+                    <p class="text-gray-400 mb-8">Ready to bring your web app idea to life? Specialized in creating polished, user-friendly web applications.</p>
 
                     <div class="flex items-center gap-4 text-gray-300 mb-8 p-4 border border-gray-800 bg-cyber-black rounded">
                         <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-neon-green">
@@ -828,26 +854,24 @@
                         </div>
                         <div>
                             <p class="text-xs text-gray-500 uppercase">Location</p>
-                            <p>Tacloban City, Leyte, Philippines</p>
+                            <p x-text="$store.config.data.personal.location"></p>
                         </div>
                     </div>
                 </div>
 
+                <!-- Mailto Form Submission -->
                 <form x-data="{
                         name: '',
                         email: '',
                         message: '',
-                        status: 'idle',
-                        submitForm() {
-                            this.status = 'sending';
-                            setTimeout(() => {
-                                this.status = 'success';
-                                this.name = ''; this.email = ''; this.message = '';
-                                setTimeout(() => this.status = 'idle', 3000);
-                            }, 1500);
+                        sendMail() {
+                            const recipient = $store.config.data.personal.email;
+                            const subject = `Portfolio Contact from ${this.name}`;
+                            const body = `Name: ${this.name}\nEmail: ${this.email}\n\nMessage:\n${this.message}`;
+                            window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                         }
                     }"
-                    @submit.prevent="submitForm"
+                    @submit.prevent="sendMail"
                     class="bg-cyber-black p-8 border border-gray-800 shadow-2xl relative">
 
                     <!-- Neon Border Effect -->
@@ -868,11 +892,8 @@
                         </div>
 
                         <button type="submit"
-                                :disabled="status === 'sending' || status === 'success'"
                                 class="w-full bg-neon-green text-black font-bold py-3 uppercase tracking-widest hover:bg-white hover:shadow-neon transition-all flex items-center justify-center gap-2">
-                            <span x-show="status === 'idle'">Transmit Data</span>
-                            <span x-show="status === 'sending'" class="animate-pulse">Transmitting...</span>
-                            <span x-show="status === 'success'">Transmission Complete</span>
+                            <span>Transmit Data</span>
                         </button>
                     </div>
                 </form>
@@ -880,14 +901,46 @@
         </section>
 
         <div class="text-center py-12">
-            <a href="#" class="inline-block text-neon-green border-b border-neon-green hover:text-white hover:border-white transition-colors pb-1">View Resume.pdf</a>
+            <a :href="$store.config.data.resumeUrl" class="inline-block text-neon-green border-b border-neon-green hover:text-white hover:border-white transition-colors pb-1">View Resume.pdf</a>
         </div>
     </main>
 
-    <footer class="bg-cyber-black border-t border-gray-800 py-8 text-center text-gray-500 text-sm">
+    <footer x-data class="bg-cyber-black border-t border-gray-800 py-8 text-center text-gray-500 text-sm">
         <div class="container mx-auto px-6">
-            <p>&copy; 2026 Sean Lloyd Harold Raquel. All rights reserved. System v1.0</p>
+            <p>&copy; <span x-text="new Date().getFullYear()"></span> <span x-text="$store.config.data.personal.name"></span>. All rights reserved. System v1.0</p>
         </div>
     </footer>
+    <script src="config.js"></script>
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('config', {
+                data: window.siteConfig || {
+                    personal: {
+                        name: 'Loading...',
+                        initials: '...',
+                        role: '',
+                        location: '',
+                        email: ''
+                    },
+                    social: {
+                        github: '#',
+                        linkedin: '#'
+                    },
+                    formspreeId: '',
+                    resumeUrl: '#'
+                },
+                init() {
+                    // Data is loaded from config.js via window.siteConfig
+                    if (window.siteConfig) {
+                        this.data = window.siteConfig;
+                    } else {
+                        console.error('Config not loaded!');
+                    }
+                }
+            });
+
+            // Removed contactForm component as we switched to standard submission
+        });
+    </script>
 </body>
 </html>
