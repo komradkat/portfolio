@@ -24,7 +24,8 @@ window.siteConfig = {
             "category": "Featured",
             "categoryColor": "text-neon-green bg-neon-green/20",
             "repoUrl": "#",
-            "demoUrl": "#"
+            "demoUrl": "https://demos-4vd.pages.dev/bims-demo/",
+            "image": "assets/img/bims-dash-pic.png"
         },
         {
             "title": "Gym Management System",

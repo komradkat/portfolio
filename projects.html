@@ -129,13 +129,17 @@
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
                 <a :href="$store.config.data.navigation.projects.url"
-                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.projects.title"></a>
+                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all"
+                    x-text="$store.config.data.navigation.projects.title"></a>
                 <a :href="$store.config.data.navigation.skills.url"
-                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.skills.title"></a>
+                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all"
+                    x-text="$store.config.data.navigation.skills.title"></a>
                 <a :href="$store.config.data.navigation.process.url"
-                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.process.title"></a>
+                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all"
+                    x-text="$store.config.data.navigation.process.title"></a>
                 <a :href="$store.config.data.navigation.contact.url"
-                    class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all"><span x-text="$store.config.data.navigation.contact.title"></span></a>
+                    class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all"><span
+                        x-text="$store.config.data.navigation.contact.title"></span></a>
             </nav>
 
             <!-- Social Links (Desktop) -->
@@ -167,13 +171,16 @@
             x-transition:leave-end="opacity-0 -translate-y-4"
             class="md:hidden absolute top-full left-0 w-full bg-cyber-black/95 border-b border-neon-green backdrop-blur-md p-6 flex flex-col gap-4 shadow-neon">
             <a :href="$store.config.data.navigation.projects.url" @click="mobileMenu = false"
-                class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.projects.title"></a>
+                class="hover:text-white transition-colors py-2"
+                x-text="$store.config.data.navigation.projects.title"></a>
             <a :href="$store.config.data.navigation.skills.url" @click="mobileMenu = false"
                 class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.skills.title"></a>
             <a :href="$store.config.data.navigation.process.url" @click="mobileMenu = false"
-                class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.process.title"></a>
+                class="hover:text-white transition-colors py-2"
+                x-text="$store.config.data.navigation.process.title"></a>
             <a :href="$store.config.data.navigation.contact.url" @click="mobileMenu = false"
-                class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.contact.title"></a>
+                class="hover:text-white transition-colors py-2"
+                x-text="$store.config.data.navigation.contact.title"></a>
 
             <!-- Social Links (Mobile) -->
             <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
@@ -218,9 +225,18 @@
                             x-text="project.category" x-show="project.category">
                         </div>
 
-                        <div class="absolute inset-0 bg-neon-green opacity-0 group-hover:opacity-5 transition-opacity">
+                        <div
+                            class="absolute inset-0 bg-neon-green opacity-0 group-hover:opacity-5 transition-opacity z-10">
                         </div>
-                        <i class="fas fa-code text-4xl text-gray-700 group-hover:text-neon-green transition-colors"></i>
+
+                        <template x-if="project.image">
+                            <img :src="project.image" :alt="project.title"
+                                class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+                        </template>
+                        <template x-if="!project.image">
+                            <i
+                                class="fas fa-code text-4xl text-gray-700 group-hover:text-neon-green transition-colors relative z-10"></i>
+                        </template>
                     </div>
 
                     <!-- Content -->
