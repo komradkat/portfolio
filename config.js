@@ -8,13 +8,13 @@ window.siteConfig = {
     },
     "social": {
         "github": "https://github.com/komradkat",
-        "linkedin": "https://linkedin.com/in/seanlloydraquel"
+        "linkedin": "https://www.linkedin.com/in/komradkat/"
     },
     "navigation": {
-        "projects": "projects.html",
-        "skills": "under-construction.html",
-        "process": "under-construction.html",
-        "contact": "#contact"
+        "projects": { "title": "Projects", "url": "projects.html" },
+        "skills": { "title": "Skills", "url": "skills.html" },
+        "process": { "title": "Process", "url": "process.html" },
+        "contact": { "title": "Contact Me", "url": "#contact" }
     },
     "projects": [
         {

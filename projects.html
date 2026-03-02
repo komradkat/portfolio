@@ -1,133 +1,155 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Sean Lloyd Harold Raquel</title>
 
+    <!-- Security Headers -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net;
+        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+        font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+        img-src 'self' data: https:;
+        connect-src 'self';
+        frame-ancestors 'self';
+        base-uri 'self';
+        form-action 'self';
+    ">
+
     <!-- SEO & Social Meta Tags -->
-    <meta name="description" content="Explore the projects of Sean Lloyd Harold Raquel - A collection of web applications, security tools, and developer experiments.">
-    
+    <meta name="description"
+        content="Sean Lloyd Harold Raquel - Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
+    <meta name="keywords"
+        content="Web Developer, Django Developer, Python Developer, Cybersecurity, AI Orchestration, Full Stack Developer">
+    <meta name="author" content="Sean Lloyd Harold Raquel">
+
     <!-- Open Graph / Facebook -->
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="projects.html">
     <meta property="og:title" content="Projects - Sean Lloyd Harold Raquel">
-    <meta property="og:description" content="Explore the projects of Sean Lloyd Harold Raquel - A collection of web applications, security tools, and developer experiments.">
+    <meta property="og:description"
+        content="Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
     <meta property="og:image" content="assets/social-share.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="projects.html">
     <meta property="twitter:title" content="Projects - Sean Lloyd Harold Raquel">
-    <meta property="twitter:description" content="Explore the projects of Sean Lloyd Harold Raquel - A collection of web applications, security tools, and developer experiments.">
+    <meta property="twitter:description"
+        content="Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
     <meta property="twitter:image" content="assets/social-share.png">
-    
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js Plugins -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts: JetBrains Mono (Hacker Font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'neon-green': '#0f0',
+                        'neon-green': '#00ff00',
+                        'neon-dark': '#003300',
                         'cyber-black': '#050505',
-                        'cyber-gray': '#1a1a1a',
-                    },
-                    boxShadow: {
-                        'neon': '0 0 10px #0f0, 0 0 20px #0f0',
-                        'neon-sm': '0 0 5px #0f0',
+                        'cyber-gray': '#111111',
                     },
                     fontFamily: {
-                        mono: ['Courier New', 'Courier', 'monospace'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 10px #00ff00, 0 0 20px #00ff00',
+                        'neon-sm': '0 0 5px #00ff00',
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glitch': 'glitch 1s linear infinite',
+                    },
+                    keyframes: {
+                        glitch: {
+                            '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+                            '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+                            '62%': { transform: 'translate(0,0) skew(5deg)' },
+                        }
                     }
                 }
             }
         }
     </script>
-    <style>
-        .glitch-text:hover {
-            animation: glitch 0.3s infinite;
-        }
-        @keyframes glitch {
-            0% { transform: translate(0) }
-            20% { transform: translate(-2px, 2px) }
-            40% { transform: translate(-2px, -2px) }
-            60% { transform: translate(2px, 2px) }
-            80% { transform: translate(2px, -2px) }
-            100% { transform: translate(0) }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body x-data class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden">
+
+<body x-data
+    class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden">
 
     <!-- Matrix Rain Background -->
     <canvas id="matrix-rain" class="fixed inset-0 pointer-events-none z-[-1] opacity-20"></canvas>
-    
-    <script>
-        const canvas = document.getElementById('matrix-rain');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const columns = Math.floor(canvas.width / 20);
-        const yPositions = Array(columns).fill(0);
 
-        function matrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#0f0';
-            ctx.font = '15pt monospace';
-            yPositions.forEach((y, i) => {
-                const text = String.fromCharCode(Math.random() * 128);
-                const x = i * 20;
-                ctx.fillText(text, x, y);
-                if (y > 100 + Math.random() * 10000) yPositions[i] = 0;
-                else yPositions[i] = y + 20;
-            });
-        }
-        setInterval(matrix, 50);
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
+    <script src="assets/js/matrix-rain.js"></script>
 
     <!-- Header -->
-    <header x-data="{ scrolled: false, mobileMenu: false }"
-            @scroll.window="scrolled = (window.pageYOffset > 20)"
-            :class="scrolled ? 'bg-cyber-black/95 border-b border-neon-green/30 backdrop-blur-md shadow-neon-sm' : 'bg-transparent'"
-            class="fixed w-full top-0 z-50 transition-all duration-300 py-4">
+    <header x-data="{ scrolled: false, mobileMenu: false }" x-cloak
+        @scroll.window="scrolled = (window.pageYOffset > 20)"
+        :class="scrolled ? 'bg-cyber-black/95 border-b border-neon-green/30 backdrop-blur-md shadow-neon-sm' : 'bg-transparent'"
+        class="fixed w-full top-0 z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <!-- Logo/Brand -->
             <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
-                <div class="relative w-10 h-10 border-2 border-neon-green rounded-lg flex items-center justify-center overflow-hidden group-hover:shadow-neon transition-all duration-300 bg-cyber-black">
-                    <span class="text-lg font-bold text-neon-green group-hover:scale-110 transition-transform" x-text="$store.config.data.personal.initials"></span>
+                <div
+                    class="relative w-10 h-10 border-2 border-neon-green rounded-lg flex items-center justify-center overflow-hidden group-hover:shadow-neon transition-all duration-300 bg-cyber-black">
+                    <span class="text-lg font-bold text-neon-green group-hover:scale-110 transition-transform"
+                        x-text="$store.config.data.personal.initials"></span>
                 </div>
-                <span class="text-xl font-bold tracking-tight group-hover:text-neon-green transition-colors hidden sm:block">
-                    <span class="text-white" x-text="$store.config.data.personal.name"></span><span class="text-neon-green">_</span>
+                <span
+                    class="text-xl font-bold tracking-tight group-hover:text-neon-green transition-colors hidden sm:block">
+                    <span class="text-white" x-text="$store.config.data.personal.name"></span><span
+                        class="text-neon-green">_</span>
                 </span>
             </a>
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
-                <a :href="$store.config.data.navigation.projects" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Projects</a>
-                <a :href="$store.config.data.navigation.skills" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Skills</a>
-                <a :href="$store.config.data.navigation.process" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Process</a>
-                <a :href="$store.config.data.navigation.contact" class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all">
-                    Contact Me
-                </a>
+                <a :href="$store.config.data.navigation.projects.url"
+                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.projects.title"></a>
+                <a :href="$store.config.data.navigation.skills.url"
+                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.skills.title"></a>
+                <a :href="$store.config.data.navigation.process.url"
+                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.process.title"></a>
+                <a :href="$store.config.data.navigation.contact.url"
+                    class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all"><span x-text="$store.config.data.navigation.contact.title"></span></a>
             </nav>
 
             <!-- Social Links (Desktop) -->
             <div class="hidden md:flex items-center gap-4">
-                <a :href="$store.config.data.social.github" target="_blank" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="$store.config.data.social.github" target="_blank"
+                    class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="$store.config.data.social.linkedin" target="_blank"
+                    class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="'mailto:' + $store.config.data.personal.email" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="'mailto:' + $store.config.data.personal.email"
+                    class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>
                 </a>
             </div>
@@ -139,79 +161,92 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div x-show="mobileMenu"
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-4"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 -translate-y-4"
-             class="md:hidden absolute top-full left-0 w-full bg-cyber-black/95 border-b border-neon-green backdrop-blur-md p-6 flex flex-col gap-4 shadow-neon">
-             <a :href="$store.config.data.navigation.projects" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Projects</a>
-             <a :href="$store.config.data.navigation.skills" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Skills</a>
-             <a :href="$store.config.data.navigation.process" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Process</a>
-             <a :href="$store.config.data.navigation.contact" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Contact</a>
-             
-             <!-- Social Links (Mobile) -->
-             <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
-                <a :href="$store.config.data.social.github" target="_blank" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+        <div x-show="mobileMenu" x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4"
+            class="md:hidden absolute top-full left-0 w-full bg-cyber-black/95 border-b border-neon-green backdrop-blur-md p-6 flex flex-col gap-4 shadow-neon">
+            <a :href="$store.config.data.navigation.projects.url" @click="mobileMenu = false"
+                class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.projects.title"></a>
+            <a :href="$store.config.data.navigation.skills.url" @click="mobileMenu = false"
+                class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.skills.title"></a>
+            <a :href="$store.config.data.navigation.process.url" @click="mobileMenu = false"
+                class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.process.title"></a>
+            <a :href="$store.config.data.navigation.contact.url" @click="mobileMenu = false"
+                class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.contact.title"></a>
+
+            <!-- Social Links (Mobile) -->
+            <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
+                <a :href="$store.config.data.social.github" target="_blank"
+                    class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-github"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                <a :href="$store.config.data.social.linkedin" target="_blank"
+                    class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a :href="'mailto:' + $store.config.data.personal.email" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                <a :href="'mailto:' + $store.config.data.personal.email"
+                    class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fas fa-envelope"></i>
                 </a>
-             </div>
+            </div>
         </div>
     </header>
 
     <main class="pt-32 pb-20 container mx-auto px-6">
         <!-- Page Title -->
         <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 glitch-text">Mission <span class="text-neon-green">Log</span></h1>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 glitch-text">My <span
+                    class="text-neon-green">Projects</span></h1>
             <div class="h-1 w-24 bg-neon-green mx-auto"></div>
             <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
-                A curated collection of deployed systems, experimental prototypes, and architectural blueprints.
+                A curated collection of developed systems and experimental prototypes.
             </p>
         </div>
 
         <!-- Projects Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <template x-for="project in $store.config.data.projects">
-                <div class="group bg-cyber-gray border border-gray-800 hover:border-neon-green transition-all duration-300 hover:shadow-neon-sm overflow-hidden flex flex-col h-full rounded-lg">
+                <div
+                    class="group bg-cyber-gray border border-gray-800 hover:border-neon-green transition-all duration-300 hover:shadow-neon-sm overflow-hidden flex flex-col h-full rounded-lg">
                     <!-- Project Header/Image Placeholder -->
-                    <div class="h-48 bg-gray-900 border-b border-gray-800 group-hover:bg-gray-800 transition-colors flex items-center justify-center relative overflow-hidden">
+                    <div
+                        class="h-48 bg-gray-900 border-b border-gray-800 group-hover:bg-gray-800 transition-colors flex items-center justify-center relative overflow-hidden">
                         <!-- Category Badge -->
                         <div class="absolute top-0 right-0 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm z-10"
-                             :class="project.categoryColor || 'bg-neon-green/20 text-neon-green'"
-                             x-text="project.category"
-                             x-show="project.category">
+                            :class="project.categoryColor || 'bg-neon-green/20 text-neon-green'"
+                            x-text="project.category" x-show="project.category">
                         </div>
-                        
-                        <div class="absolute inset-0 bg-neon-green opacity-0 group-hover:opacity-5 transition-opacity"></div>
+
+                        <div class="absolute inset-0 bg-neon-green opacity-0 group-hover:opacity-5 transition-opacity">
+                        </div>
                         <i class="fas fa-code text-4xl text-gray-700 group-hover:text-neon-green transition-colors"></i>
                     </div>
-                    
+
                     <!-- Content -->
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors" x-text="project.title"></h3>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors"
+                            x-text="project.title"></h3>
                         <p class="text-gray-400 text-sm mb-4 flex-1" x-text="project.description"></p>
-                        
+
                         <!-- Tags -->
                         <div class="flex flex-wrap gap-2 mb-6">
                             <template x-for="tag in project.tags">
-                                <span class="px-2 py-1 text-xs border border-gray-700 text-neon-green rounded bg-gray-900/50" x-text="tag"></span>
+                                <span
+                                    class="px-2 py-1 text-xs border border-gray-700 text-neon-green rounded bg-gray-900/50"
+                                    x-text="tag"></span>
                             </template>
                         </div>
 
                         <!-- Actions -->
                         <div class="flex items-center gap-4 mt-auto">
-                            <a :href="project.demoUrl" target="_blank" class="flex-1 text-center py-2 bg-neon-green text-black font-bold text-sm hover:bg-white hover:shadow-neon transition-all" x-show="project.demoUrl !== '#'">
+                            <a :href="project.demoUrl" target="_blank"
+                                class="flex-1 text-center py-2 bg-neon-green text-black font-bold text-sm hover:bg-white hover:shadow-neon transition-all"
+                                x-show="project.demoUrl !== '#'">
                                 <i class="fas fa-eye mr-2"></i> Demo
                             </a>
-                            <a :href="project.repoUrl" target="_blank" class="flex-1 text-center py-2 border border-gray-600 text-gray-300 text-sm hover:border-neon-green hover:text-white transition-all">
+                            <a :href="project.repoUrl" target="_blank"
+                                class="flex-1 text-center py-2 border border-gray-600 text-gray-300 text-sm hover:border-neon-green hover:text-white transition-all">
                                 <i class="fab fa-github mr-2"></i> Code
                             </a>
                         </div>
@@ -223,7 +258,8 @@
 
     <footer x-data class="bg-cyber-black border-t border-gray-800 py-8 text-center text-gray-500 text-sm mt-auto">
         <div class="container mx-auto px-6">
-            <p>&copy; <span x-text="new Date().getFullYear()"></span> <span x-text="$store.config.data.personal.name"></span>. All rights reserved. System v1.0</p>
+            <p>&copy; <span x-text="new Date().getFullYear()"></span> <span
+                    x-text="$store.config.data.personal.name"></span>. All rights reserved. System v1.0</p>
         </div>
     </footer>
 
@@ -240,4 +276,5 @@
         });
     </script>
 </body>
+
 </html>

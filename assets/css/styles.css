@@ -1,0 +1,37 @@
+/* Custom scrollbar for Webkit */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+::-webkit-scrollbar-thumb {
+    background: #003300;
+    border: 1px solid #00ff00;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00ff00;
+}
+
+.typewriter::after {
+    content: '|';
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.glitch-text:hover {
+    animation: glitch 0.3s infinite;
+}
+@keyframes glitch {
+    0% { transform: translate(0) }
+    20% { transform: translate(-2px, 2px) }
+    40% { transform: translate(-2px, -2px) }
+    60% { transform: translate(2px, 2px) }
+    80% { transform: translate(2px, -2px) }
+    100% { transform: translate(0) }
+}
+
+[x-cloak] { display: none !important; }

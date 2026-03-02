@@ -90,90 +90,18 @@
             }
         }
     </script>
-    <style>
-        /* Custom scrollbar for Webkit */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #050505;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #003300;
-            border: 1px solid #00ff00;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00ff00;
-        }
-
-        .typewriter::after {
-            content: '|';
-            animation: blink 1s step-start infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body x-data class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden">
 
     <!-- Matrix Rain Background -->
     <canvas id="matrix-rain" class="fixed inset-0 pointer-events-none z-[-1] opacity-20"></canvas>
 
-    <script>
-        const canvas = document.getElementById('matrix-rain');
-        const ctx = canvas.getContext('2d');
-
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
-
-        const columns = Math.floor(width / 20);
-        const yPositions = Array(columns).fill(0);
-
-        ctx.fillStyle = '#000';
-        ctx.fillRect(0, 0, width, height);
-
-        function matrix() {
-            ctx.fillStyle = '#0001';
-            ctx.fillRect(0, 0, width, height);
-
-            ctx.fillStyle = '#0f0';
-            ctx.font = '15pt monospace';
-
-            yPositions.forEach((y, index) => {
-                const text = String.fromCharCode(Math.random() * 128);
-                const x = index * 20;
-                ctx.fillText(text, x, y);
-
-                if (y > 100 + Math.random() * 10000) {
-                    yPositions[index] = 0;
-                } else {
-                    yPositions[index] = y + 20;
-                }
-            });
-        }
-
-        setInterval(matrix, 50);
-
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            // Recalculate columns on resize
-            const newColumns = Math.floor(width / 20);
-            // Properly resize the positions array
-            if (newColumns > yPositions.length) {
-               // Append new columns starting at random Y positions
-               for (let i = yPositions.length; i < newColumns; i++) {
-                   yPositions.push(Math.random() * height); 
-               }
-            }
-        });
-    </script>
+    <script src="assets/js/matrix-rain.js"></script>
 
     <!-- Header -->
     <header x-data="{ scrolled: false, mobileMenu: false }"
-            @scroll.window="scrolled = (window.pageYOffset > 20)"
+            x-cloak @scroll.window="scrolled = (window.pageYOffset > 20)"
             :class="scrolled ? 'bg-cyber-black/95 border-b border-neon-green/30 backdrop-blur-md shadow-neon-sm' : 'bg-transparent'"
             class="fixed w-full top-0 z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
@@ -189,12 +117,10 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
-                <a :href="$store.config.data.navigation.projects" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Projects</a>
-                <a :href="$store.config.data.navigation.skills" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Skills</a>
-                <a :href="$store.config.data.navigation.process" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all">Process</a>
-                <a :href="$store.config.data.navigation.contact" class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all">
-                    Contact Me
-                </a>
+                <a :href="$store.config.data.navigation.projects.url" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.projects.title"></a>
+                <a :href="$store.config.data.navigation.skills.url" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.skills.title"></a>
+                <a :href="$store.config.data.navigation.process.url" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.process.title"></a>
+                <a :href="$store.config.data.navigation.contact.url" class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all"><span x-text="$store.config.data.navigation.contact.title"></span></a>
             </nav>
 
             <!-- Social Links (Desktop) -->
@@ -225,10 +151,10 @@
              x-transition:leave-start="opacity-100 translate-y-0"
              x-transition:leave-end="opacity-0 -translate-y-4"
              class="md:hidden absolute top-full left-0 w-full bg-cyber-black/95 border-b border-neon-green backdrop-blur-md p-6 flex flex-col gap-4 shadow-neon">
-             <a :href="$store.config.data.navigation.projects" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Projects</a>
-             <a :href="$store.config.data.navigation.skills" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Skills</a>
-             <a :href="$store.config.data.navigation.process" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Process</a>
-             <a :href="$store.config.data.navigation.contact" @click="mobileMenu = false" class="hover:text-white transition-colors py-2">Contact</a>
+             <a :href="$store.config.data.navigation.projects.url" @click="mobileMenu = false" class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.projects.title"></a>
+             <a :href="$store.config.data.navigation.skills.url" @click="mobileMenu = false" class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.skills.title"></a>
+             <a :href="$store.config.data.navigation.process.url" @click="mobileMenu = false" class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.process.title"></a>
+             <a :href="$store.config.data.navigation.contact.url" @click="mobileMenu = false" class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.contact.title"></a>
              
              <!-- Social Links (Mobile) -->
              <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
