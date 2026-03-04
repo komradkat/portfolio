@@ -18,12 +18,12 @@ window.siteConfig = {
     },
     "projects": [
         {
-            "title": "BIMS-Pro",
+            "title": "Barangay Information Management System",
             "description": "Barangay Information Management System built with Django and the HAT Stack (HTMX, Alpine.js, TailwindCSS). A modern, security-focused government application designed for speed, data integrity, and exceptional UX.",
             "tags": ["Django", "HTMX", "Alpine.js", "TailwindCSS", "PostgreSQL"],
             "category": "Featured",
             "categoryColor": "text-neon-green bg-neon-green/20",
-            "repoUrl": "#",
+            "repoUrl": "https://github.com/komradkat/bims2",
             "demoUrl": "https://demos-4vd.pages.dev/bims-demo/",
             "image": "assets/img/bims-dash-pic.png"
         },
