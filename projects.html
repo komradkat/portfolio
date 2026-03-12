@@ -53,11 +53,11 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Alpine.js Plugins -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.13.3/dist/cdn.min.js" integrity="sha384-vdHU5Di2QosiIutFX9fxSl943Vt8CGqVrWtqLDJ7f9UAsCQ7qFb8n7TwDvkZG7iJ" crossorigin="anonymous"></script>
     <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" integrity="sha384-Rpe/8orFUm5Q1GplYBHxbuA8Az8O8C5sAoOsdbRWkqPjKFaxPgGZipj4zeHL7lxX" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
     <!-- Google Fonts: JetBrains Mono (Hacker Font) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -144,11 +144,11 @@
 
             <!-- Social Links (Desktop) -->
             <div class="hidden md:flex items-center gap-4">
-                <a :href="$store.config.data.social.github" target="_blank"
+                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer"
                     class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank"
+                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer"
                     class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
                 </a>
@@ -184,11 +184,11 @@
 
             <!-- Social Links (Mobile) -->
             <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
-                <a :href="$store.config.data.social.github" target="_blank"
+                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer"
                     class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-github"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank"
+                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer"
                     class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-linkedin"></i>
                 </a>
@@ -256,12 +256,12 @@
 
                         <!-- Actions -->
                         <div class="flex items-center gap-4 mt-auto">
-                            <a :href="project.demoUrl" target="_blank"
+                            <a :href="project.demoUrl" target="_blank" rel="noopener noreferrer"
                                 class="flex-1 text-center py-2 bg-neon-green text-black font-bold text-sm hover:bg-white hover:shadow-neon transition-all"
                                 x-show="project.demoUrl !== '#'">
                                 <i class="fas fa-eye mr-2"></i> Demo
                             </a>
-                            <a :href="project.repoUrl" target="_blank"
+                            <a :href="project.repoUrl" target="_blank" rel="noopener noreferrer"
                                 class="flex-1 text-center py-2 border border-gray-600 text-gray-300 text-sm hover:border-neon-green hover:text-white transition-all">
                                 <i class="fab fa-github mr-2"></i> Code
                             </a>
