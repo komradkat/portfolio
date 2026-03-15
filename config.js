@@ -33,8 +33,9 @@ window.siteConfig = {
             "tags": ["Django", "PostgreSQL", "HTMX", "TailwindCSS"],
             "category": "Featured",
             "categoryColor": "text-neon-green bg-neon-green/20",
-            "repoUrl": "#",
-            "demoUrl": "#"
+            "repoUrl": "https://github.com/komradkat/gms",
+            "demoUrl": "https://demos-4vd.pages.dev/gms-demo/",
+            "image": "assets/img/gms-dash-pic.png"
         },
         {
             "title": "VoteWise",
