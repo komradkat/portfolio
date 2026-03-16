@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sean Lloyd Harold Raquel - Developer Portfolio</title>
-    
+
     <!-- Security Headers -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    
+
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
@@ -24,10 +25,12 @@
         base-uri 'self';
         form-action 'self';
     ">
-    
+
     <!-- SEO & Social Meta Tags -->
-    <meta name="description" content="Sean Lloyd Harold Raquel - Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
-    <meta name="keywords" content="Web Developer, Django Developer, Python Developer, Cybersecurity, AI Orchestration, Full Stack Developer">
+    <meta name="description"
+        content="Sean Lloyd Harold Raquel - Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
+    <meta name="keywords"
+        content="Web Developer, Django Developer, Python Developer, Cybersecurity, AI Orchestration, Full Stack Developer">
     <meta name="author" content="Sean Lloyd Harold Raquel">
 
     <!-- Open Graph / Facebook -->
@@ -35,24 +38,31 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="./">
     <meta property="og:title" content="Sean Lloyd Harold Raquel - Developer Portfolio">
-    <meta property="og:description" content="Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
+    <meta property="og:description"
+        content="Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
     <meta property="og:image" content="assets/social-share.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="./">
     <meta property="twitter:title" content="Sean Lloyd Harold Raquel - Developer Portfolio">
-    <meta property="twitter:description" content="Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
+    <meta property="twitter:description"
+        content="Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
     <meta property="twitter:image" content="assets/social-share.png">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Alpine.js Plugins -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.13.3/dist/cdn.min.js" integrity="sha384-vdHU5Di2QosiIutFX9fxSl943Vt8CGqVrWtqLDJ7f9UAsCQ7qFb8n7TwDvkZG7iJ" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.13.3/dist/cdn.min.js"
+        integrity="sha384-vdHU5Di2QosiIutFX9fxSl943Vt8CGqVrWtqLDJ7f9UAsCQ7qFb8n7TwDvkZG7iJ"
+        crossorigin="anonymous"></script>
     <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" integrity="sha384-Rpe/8orFUm5Q1GplYBHxbuA8Az8O8C5sAoOsdbRWkqPjKFaxPgGZipj4zeHL7lxX" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"
+        integrity="sha384-Rpe/8orFUm5Q1GplYBHxbuA8Az8O8C5sAoOsdbRWkqPjKFaxPgGZipj4zeHL7lxX"
+        crossorigin="anonymous"></script>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
     <!-- Google Fonts: JetBrains Mono (Hacker Font) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,7 +102,9 @@
     </script>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body x-data class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden">
+
+<body x-data
+    class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden">
 
     <!-- Matrix Rain Background -->
     <canvas id="matrix-rain" class="fixed inset-0 pointer-events-none z-[-1] opacity-20"></canvas>
@@ -100,38 +112,53 @@
     <script src="assets/js/matrix-rain.js"></script>
 
     <!-- Header -->
-    <header x-data="{ scrolled: false, mobileMenu: false }"
-            x-cloak @scroll.window="scrolled = (window.pageYOffset > 20)"
-            :class="scrolled ? 'bg-cyber-black/95 border-b border-neon-green/30 backdrop-blur-md shadow-neon-sm' : 'bg-transparent'"
-            class="fixed w-full top-0 z-50 transition-all duration-300 py-4">
+    <header x-data="{ scrolled: false, mobileMenu: false }" x-cloak
+        @scroll.window="scrolled = (window.pageYOffset > 20)"
+        :class="scrolled ? 'bg-cyber-black/95 border-b border-neon-green/30 backdrop-blur-md shadow-neon-sm' : 'bg-transparent'"
+        class="fixed w-full top-0 z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <!-- Logo/Brand -->
             <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
-                <div class="relative w-10 h-10 border-2 border-neon-green rounded-lg flex items-center justify-center overflow-hidden group-hover:shadow-neon transition-all duration-300 bg-cyber-black">
-                    <span class="text-lg font-bold text-neon-green group-hover:scale-110 transition-transform" x-text="$store.config.data.personal.initials"></span>
+                <div
+                    class="relative w-10 h-10 border-2 border-neon-green rounded-lg flex items-center justify-center overflow-hidden group-hover:shadow-neon transition-all duration-300 bg-cyber-black">
+                    <span class="text-lg font-bold text-neon-green group-hover:scale-110 transition-transform"
+                        x-text="$store.config.data.personal.initials"></span>
                 </div>
-                <span class="text-xl font-bold tracking-tight group-hover:text-neon-green transition-colors hidden sm:block">
-                    <span class="text-white" x-text="$store.config.data.personal.name"></span><span class="text-neon-green">_</span>
+                <span
+                    class="text-xl font-bold tracking-tight group-hover:text-neon-green transition-colors hidden sm:block">
+                    <span class="text-white" x-text="$store.config.data.personal.name"></span><span
+                        class="text-neon-green">_</span>
                 </span>
             </a>
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center gap-8">
-                <a :href="$store.config.data.navigation.projects.url" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.projects.title"></a>
-                <a :href="$store.config.data.navigation.skills.url" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.skills.title"></a>
-                <a :href="$store.config.data.navigation.process.url" class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all" x-text="$store.config.data.navigation.process.title"></a>
-                <a :href="$store.config.data.navigation.contact.url" class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all"><span x-text="$store.config.data.navigation.contact.title"></span></a>
+                <a :href="$store.config.data.navigation.projects.url"
+                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all"
+                    x-text="$store.config.data.navigation.projects.title"></a>
+                <a :href="$store.config.data.navigation.skills.url"
+                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all"
+                    x-text="$store.config.data.navigation.skills.title"></a>
+                <a :href="$store.config.data.navigation.process.url"
+                    class="hover:text-white hover:underline decoration-neon-green underline-offset-4 transition-all"
+                    x-text="$store.config.data.navigation.process.title"></a>
+                <a :href="$store.config.data.navigation.contact.url"
+                    class="px-4 py-2 border border-neon-green/50 text-sm hover:bg-neon-green/10 hover:border-neon-green transition-all"><span
+                        x-text="$store.config.data.navigation.contact.title"></span></a>
             </nav>
 
             <!-- Social Links (Desktop) -->
             <div class="hidden md:flex items-center gap-4">
-                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer"
+                    class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer"
+                    class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="'mailto:' + $store.config.data.personal.email" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="'mailto:' + $store.config.data.personal.email"
+                    class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>
                 </a>
             </div>
@@ -143,39 +170,50 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div x-show="mobileMenu"
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-4"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 -translate-y-4"
-             class="md:hidden absolute top-full left-0 w-full bg-cyber-black/95 border-b border-neon-green backdrop-blur-md p-6 flex flex-col gap-4 shadow-neon">
-             <a :href="$store.config.data.navigation.projects.url" @click="mobileMenu = false" class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.projects.title"></a>
-             <a :href="$store.config.data.navigation.skills.url" @click="mobileMenu = false" class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.skills.title"></a>
-             <a :href="$store.config.data.navigation.process.url" @click="mobileMenu = false" class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.process.title"></a>
-             <a :href="$store.config.data.navigation.contact.url" @click="mobileMenu = false" class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.contact.title"></a>
-             
-             <!-- Social Links (Mobile) -->
-             <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
-                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+        <div x-show="mobileMenu" x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4"
+            class="md:hidden absolute top-full left-0 w-full bg-cyber-black/95 border-b border-neon-green backdrop-blur-md p-6 flex flex-col gap-4 shadow-neon">
+            <a :href="$store.config.data.navigation.projects.url" @click="mobileMenu = false"
+                class="hover:text-white transition-colors py-2"
+                x-text="$store.config.data.navigation.projects.title"></a>
+            <a :href="$store.config.data.navigation.skills.url" @click="mobileMenu = false"
+                class="hover:text-white transition-colors py-2" x-text="$store.config.data.navigation.skills.title"></a>
+            <a :href="$store.config.data.navigation.process.url" @click="mobileMenu = false"
+                class="hover:text-white transition-colors py-2"
+                x-text="$store.config.data.navigation.process.title"></a>
+            <a :href="$store.config.data.navigation.contact.url" @click="mobileMenu = false"
+                class="hover:text-white transition-colors py-2"
+                x-text="$store.config.data.navigation.contact.title"></a>
+
+            <!-- Social Links (Mobile) -->
+            <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
+                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-github"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer"
+                    class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a :href="'mailto:' + $store.config.data.personal.email" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                <a :href="'mailto:' + $store.config.data.personal.email"
+                    class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fas fa-envelope"></i>
                 </a>
-             </div>
+            </div>
         </div>
     </header>
 
     <main class="pt-24">
         <!-- Hero Section -->
         <section class="min-h-[calc(100vh-6rem)] flex items-center justify-center relative overflow-hidden" x-data>
-            <div class="absolute top-0 right-0 w-96 h-96 bg-neon-green rounded-full mix-blend-multiply filter blur-[128px] opacity-10 animate-pulse"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-[128px] opacity-5"></div>
+            <div
+                class="absolute top-0 right-0 w-96 h-96 bg-neon-green rounded-full mix-blend-multiply filter blur-[128px] opacity-10 animate-pulse">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-[128px] opacity-5">
+            </div>
 
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <div class="space-y-6" x-data="{ 
@@ -210,27 +248,35 @@
                     };
                     type();
                 ">
-                    <p class="text-neon-green text-lg tracking-widest uppercase border-l-4 border-neon-green pl-4 animate-pulse">System Online</p>
+                    <p
+                        class="text-neon-green text-lg tracking-widest uppercase border-l-4 border-neon-green pl-4 animate-pulse">
+                        System Online</p>
                     <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
-                        <span x-text="$store.config.data.personal.name.split(' ').slice(0, -1).join(' ')"></span> <span class="text-neon-green" x-text="$store.config.data.personal.name.split(' ').slice(-1)"></span>
+                        <span x-text="$store.config.data.personal.name.split(' ').slice(0, -1).join(' ')"></span> <span
+                            class="text-neon-green"
+                            x-text="$store.config.data.personal.name.split(' ').slice(-1)"></span>
                     </h1>
                     <h2 class="text-2xl md:text-4xl text-gray-400 font-bold h-10 typewriter" x-text="text"></h2>
-                    <p class="text-gray-400 text-lg max-w-lg border border-neon-green/30 p-4 bg-neon-green/5 backdrop-blur-sm">
+                    <p
+                        class="text-gray-400 text-lg max-w-lg border border-neon-green/30 p-4 bg-neon-green/5 backdrop-blur-sm">
                         > Crafting exceptional Web Applications with Django and HAT (HTMX, Alpine.js, TailwindCSS) Stack
                         <br>> Security Focused Development.
                     </p>
 
                     <div class="flex flex-wrap gap-8 pt-8 border-t border-neon-green/20">
                         <div class="text-center group cursor-default">
-                            <span class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">10+</span>
+                            <span
+                                class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">10+</span>
                             <span class="text-xs text-gray-500 uppercase tracking-wider">Apps Developed</span>
                         </div>
                         <div class="text-center group cursor-default">
-                            <span class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">5+</span>
+                            <span
+                                class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">5+</span>
                             <span class="text-xs text-gray-500 uppercase tracking-wider">Years of Experience</span>
                         </div>
                         <div class="text-center group cursor-default">
-                            <span class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">2</span>
+                            <span
+                                class="block text-3xl font-bold text-white group-hover:text-neon-green transition-colors">2</span>
                             <span class="text-xs text-gray-500 uppercase tracking-wider">Startup Associate</span>
                         </div>
                     </div>
@@ -292,8 +338,11 @@
                     };
                     animate();
                 ">
-                    <div class="absolute inset-0 bg-neon-green blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-                    <div class="relative bg-cyber-gray border border-neon-green p-6 rounded-lg shadow-neon transform group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-neon-green blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="relative bg-cyber-gray border border-neon-green p-6 rounded-lg shadow-neon transform group-hover:scale-105 transition-transform duration-500">
                         <!-- Window Controls -->
                         <div class="flex items-center justify-between mb-4 border-b border-gray-700 pb-2">
                             <div class="flex gap-2">
@@ -304,9 +353,10 @@
                             <div class="text-xs text-gray-400 font-mono" x-text="windowTitle"></div>
                             <div class="w-8"></div> <!-- Spacer for centering -->
                         </div>
-                        
+
                         <!-- Code Area -->
-                        <pre class="text-xs text-neon-green overflow-hidden min-h-[200px] font-mono"><code x-text="codeText"></code></pre>
+                        <pre
+                            class="text-xs text-neon-green overflow-hidden min-h-[200px] font-mono"><code x-text="codeText"></code></pre>
                     </div>
                 </div>
             </div>
@@ -315,28 +365,40 @@
         <!-- Featured App Highlight -->
         <section class="py-20 bg-cyber-gray/50 border-y border-neon-green/10">
             <div class="container mx-auto px-6 text-center">
-                <span class="inline-block px-3 py-1 border border-neon-green text-xs uppercase tracking-widest mb-4 hover:bg-neon-green hover:text-black transition-colors cursor-crosshair">Featured Project</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-2">BIMS-<span class="text-neon-green">Pro</span></h2>
-                <p class="text-gray-400 mb-8 max-w-3xl mx-auto">Barangay Information Management System built with Django and the HAT Stack (HTMX, Alpine.js, TailwindCSS). A modern, security-focused government application designed for speed, data integrity, and exceptional UX.</p>
+                <span
+                    class="inline-block px-3 py-1 border border-neon-green text-xs uppercase tracking-widest mb-4 hover:bg-neon-green hover:text-black transition-colors cursor-crosshair">Featured
+                    Project</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-2">BIMS-<span class="text-neon-green">Pro</span>
+                </h2>
+                <p class="text-gray-400 mb-8 max-w-3xl mx-auto">Barangay Information Management System built with Django
+                    and the HAT Stack (HTMX, Alpine.js, TailwindCSS). A modern, security-focused government application
+                    designed for speed, data integrity, and exceptional UX.</p>
 
                 <!-- Tech Stack Summary -->
                 <div class="max-w-4xl mx-auto mb-12 bg-cyber-black border border-neon-green/30 p-6 text-left">
                     <h3 class="text-xl font-bold text-neon-green mb-4 text-center">Core Technology Stack</h3>
                     <div class="grid md:grid-cols-2 gap-6 text-sm">
                         <div>
-                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Backend: Django 5.x + PostgreSQL</p>
-                            <p class="text-gray-400 pl-4">Python-powered logic with relational database for unlimited records and concurrent access</p>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Backend: Django
+                                5.x + PostgreSQL</p>
+                            <p class="text-gray-400 pl-4">Python-powered logic with relational database for unlimited
+                                records and concurrent access</p>
                         </div>
                         <div>
-                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Frontend: HTMX + Alpine.js</p>
-                            <p class="text-gray-400 pl-4">Stutter-free SPA experience without heavy JavaScript frameworks</p>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Frontend: HTMX +
+                                Alpine.js</p>
+                            <p class="text-gray-400 pl-4">Stutter-free SPA experience without heavy JavaScript
+                                frameworks</p>
                         </div>
                         <div>
-                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Styling: Tailwind + DaisyUI</p>
-                            <p class="text-gray-400 pl-4">Professional, mobile-friendly government-ready UI components</p>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Styling:
+                                Tailwind + DaisyUI</p>
+                            <p class="text-gray-400 pl-4">Professional, mobile-friendly government-ready UI components
+                            </p>
                         </div>
                         <div>
-                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Security: Cryptography + Audit Logs</p>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Security:
+                                Cryptography + Audit Logs</p>
                             <p class="text-gray-400 pl-4">Hardware-locked licensing and complete change tracking</p>
                         </div>
                     </div>
@@ -344,25 +406,36 @@
 
                 <!-- Key Features -->
                 <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-                    <div class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
+                    <div
+                        class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
                         <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">⚡</span>
                         <span class="text-sm text-gray-500 uppercase">Fast Development</span>
                     </div>
-                    <div class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
+                    <div
+                        class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
                         <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">🔒</span>
                         <span class="text-sm text-gray-500 uppercase">Security First</span>
                     </div>
-                    <div class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
+                    <div
+                        class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
                         <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">📈</span>
                         <span class="text-sm text-gray-500 uppercase">Scalable</span>
                     </div>
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-4">
-                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">Django ORM</span>
-                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">HTMX AJAX</span>
-                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">WeasyPrint PDF</span>
-                    <span class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">QR Verification</span>
+                    <span
+                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">Django
+                        ORM</span>
+                    <span
+                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">HTMX
+                        AJAX</span>
+                    <span
+                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">WeasyPrint
+                        PDF</span>
+                    <span
+                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">QR
+                        Verification</span>
                 </div>
             </div>
         </section>
@@ -371,21 +444,25 @@
         <section class="py-20 relative">
             <div class="container mx-auto px-6">
                 <div class="mb-16">
-                    <h2 class="text-3xl font-bold text-white mb-4 border-l-4 border-neon-green pl-4">Technical <br> Expertise</h2>
+                    <h2 class="text-3xl font-bold text-white mb-4 border-l-4 border-neon-green pl-4">Technical <br>
+                        Expertise</h2>
                     <p class="text-gray-400">Loading skills database...</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12">
                     <!-- Programming Languages -->
                     <div class="space-y-6">
-                        <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Programming Languages</h3>
+                        <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Programming Languages
+                        </h3>
 
                         <!-- Python -->
-                        <div class="border border-neon-green/30 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                        <div
+                            class="border border-neon-green/30 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
                                     <i class="fab fa-python text-2xl text-neon-green"></i>
-                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">Python</span>
+                                    <span
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">Python</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -396,17 +473,22 @@
                                 </div>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Django</span>
-                                <span class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Backend</span>
+                                <span
+                                    class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Django</span>
+                                <span
+                                    class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Backend</span>
                             </div>
                         </div>
 
                         <!-- C++ -->
-                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                        <div
+                            class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i class="fas fa-code text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
-                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">C++</span>
+                                    <i
+                                        class="fas fa-code text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">C++</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -417,16 +499,20 @@
                                 </div>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Systems</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Systems</span>
                             </div>
                         </div>
 
                         <!-- Java -->
-                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                        <div
+                            class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i class="fab fa-java text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
-                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">Java</span>
+                                    <i
+                                        class="fab fa-java text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">Java</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -437,16 +523,20 @@
                                 </div>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">OOP</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">OOP</span>
                             </div>
                         </div>
 
                         <!-- VB.NET -->
-                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                        <div
+                            class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i class="fas fa-window-maximize text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
-                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">VB.NET</span>
+                                    <i
+                                        class="fas fa-window-maximize text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">VB.NET</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -459,11 +549,14 @@
                         </div>
 
                         <!-- PHP -->
-                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                        <div
+                            class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i class="fab fa-php text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
-                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">PHP</span>
+                                    <i
+                                        class="fab fa-php text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">PHP</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -481,11 +574,13 @@
                         <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Web Technologies</h3>
 
                         <!-- Django -->
-                        <div class="border border-neon-green/30 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                        <div
+                            class="border border-neon-green/30 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
                                     <i class="fas fa-server text-2xl text-neon-green"></i>
-                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">Django</span>
+                                    <span
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">Django</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -496,18 +591,25 @@
                                 </div>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">ORM</span>
-                                <span class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">REST APIs</span>
-                                <span class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Templates</span>
+                                <span
+                                    class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">ORM</span>
+                                <span
+                                    class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">REST
+                                    APIs</span>
+                                <span
+                                    class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Templates</span>
                             </div>
                         </div>
 
                         <!-- HTML/CSS -->
-                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                        <div
+                            class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i class="fab fa-html5 text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
-                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">HTML/CSS</span>
+                                    <i
+                                        class="fab fa-html5 text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">HTML/CSS</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -518,16 +620,20 @@
                                 </div>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Responsive</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Responsive</span>
                             </div>
                         </div>
 
                         <!-- HTMX -->
-                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                        <div
+                            class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i class="fas fa-bolt text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
-                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">HTMX</span>
+                                    <i
+                                        class="fas fa-bolt text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">HTMX</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -538,16 +644,20 @@
                                 </div>
                             </div>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Interactivity</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Interactivity</span>
                             </div>
                         </div>
 
                         <!-- TailwindCSS -->
-                        <div class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                        <div
+                            class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i class="fas fa-palette text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
-                                    <span class="text-white font-bold group-hover:text-neon-green transition-colors">TailwindCSS</span>
+                                    <i
+                                        class="fas fa-palette text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">TailwindCSS</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -566,123 +676,125 @@
         <!-- Featured Apps List -->
         <section class="py-20 bg-cyber-gray/30">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-white mb-12 text-center">Developed <span class="text-neon-green">Applications</span></h2>
+                <h2 class="text-3xl font-bold text-white mb-12 text-center">Developed <span
+                        class="text-neon-green">Applications</span></h2>
 
                 <div class="grid md:grid-cols-2 gap-8">
                     <!-- App Card 1 -->
-                    <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-neon-green/20 text-neon-green px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">Featured</div>
-                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">Gym Management System</h3>
-                        <p class="text-gray-400 mb-6 text-sm">Comprehensive fitness center management platform with member tracking, billing, and attendance monitoring.</p>
+                    <div
+                        class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-neon-green/20 text-neon-green px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">
+                            Featured</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">Gym
+                            Management System</h3>
+                        <p class="text-gray-400 mb-6 text-sm">Comprehensive fitness center management platform with
+                            member tracking, billing, and attendance monitoring.</p>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">PostgreSQL</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">PostgreSQL</span>
                             <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">HTMX</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">TailwindCSS</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">TailwindCSS</span>
                         </div>
 
                         <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
-                            <span class="flex items-center gap-1"><i class="fas fa-dumbbell text-neon-green"></i> Fitness</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-dumbbell text-neon-green"></i>
+                                Fitness</span>
                             <span class="flex items-center gap-1"><i class="fas fa-users"></i> Member Portal</span>
                             <span class="flex items-center gap-1"><i class="fas fa-chart-line"></i> Analytics</span>
                         </div>
                     </div>
 
                     <!-- App Card 2 -->
-                    <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-blue-500/20 text-blue-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">Election</div>
-                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">VoteWise</h3>
-                        <p class="text-gray-400 mb-6 text-sm">School student government election management system with secure voting, candidate profiles, and real-time results.</p>
+                    <div
+                        class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-blue-500/20 text-blue-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">
+                            Election</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">
+                            VoteWise</h3>
+                        <p class="text-gray-400 mb-6 text-sm">School student government election management system with
+                            secure voting, candidate profiles, and real-time results.</p>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Python</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Alpine.js</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">TailwindCSS</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Python</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Alpine.js</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">TailwindCSS</span>
                         </div>
 
                         <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
-                            <span class="flex items-center gap-1"><i class="fas fa-vote-yea text-blue-400"></i> Voting</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-vote-yea text-blue-400"></i>
+                                Voting</span>
                             <span class="flex items-center gap-1"><i class="fas fa-shield-alt"></i> Secure</span>
                             <span class="flex items-center gap-1"><i class="fas fa-school"></i> Education</span>
                         </div>
                     </div>
 
                     <!-- App Card 3 -->
-                    <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-purple-500/20 text-purple-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">Zero-Trust</div>
-                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">Substrata By Nexus Security</h3>
-                        <p class="text-gray-400 mb-6 text-sm">High-security, zero-trust, TCTS (Thick Client, Thin Server) Model messaging platform with end-to-end encryption and blind relay architecture.</p>
+                    <div
+                        class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-purple-500/20 text-purple-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">
+                            Zero-Trust</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">
+                            Substrata By Nexus Security</h3>
+                        <p class="text-gray-400 mb-6 text-sm">High-security, zero-trust, TCTS (Thick Client, Thin
+                            Server) Model messaging platform with end-to-end encryption and blind relay architecture.
+                        </p>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Python</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django Channels</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Cryptography</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">PyWebView</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Python</span>
+                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django
+                                Channels</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Cryptography</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">PyWebView</span>
                         </div>
 
                         <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
-                            <span class="flex items-center gap-1"><i class="fas fa-user-secret text-purple-400"></i> Privacy</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-user-secret text-purple-400"></i>
+                                Privacy</span>
                             <span class="flex items-center gap-1"><i class="fas fa-lock"></i> E2E Encrypted</span>
                             <span class="flex items-center gap-1"><i class="fas fa-network-wired"></i> WebSockets</span>
                         </div>
                     </div>
 
                     <!-- App Card 4 -->
-                    <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-orange-500/20 text-orange-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">Marketplace</div>
-                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">AutoLinkX</h3>
-                        <p class="text-gray-400 mb-6 text-sm">Automotive marketplace platform for browsing, listing, and purchasing vehicles with user authentication.</p>
+                    <div
+                        class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-orange-500/20 text-orange-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">
+                            Marketplace</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">
+                            AutoLinkX</h3>
+                        <p class="text-gray-400 mb-6 text-sm">Automotive marketplace platform for browsing, listing, and
+                            purchasing vehicles with user authentication.</p>
 
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">SQLite</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Bootstrap</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">SQLite</span>
+                            <span
+                                class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Bootstrap</span>
                         </div>
 
                         <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
-                            <span class="flex items-center gap-1"><i class="fas fa-car text-orange-400"></i> Listings</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-car text-orange-400"></i>
+                                Listings</span>
                             <span class="flex items-center gap-1"><i class="fas fa-users"></i> Accounts</span>
                             <span class="flex items-center gap-1"><i class="fas fa-search"></i> Search</span>
-                        </div>
-                    </div>
-
-                    <!-- App Card 5 -->
-                    <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-cyan-500/20 text-cyan-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">DevOps</div>
-                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">HomeLab Master Directory</h3>
-                        <p class="text-gray-400 mb-6 text-sm">Lightweight Django service dashboard with automatic LAN vs Tailscale routing and real-time status monitoring.</p>
-
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Docker</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Tailscale</span>
-                        </div>
-
-                        <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
-                            <span class="flex items-center gap-1"><i class="fas fa-network-wired text-cyan-400"></i> Routing</span>
-                            <span class="flex items-center gap-1"><i class="fas fa-server"></i> Monitoring</span>
-                            <span class="flex items-center gap-1"><i class="fas fa-container-storage"></i> Docker</span>
-                        </div>
-                    </div>
-
-                    <!-- App Card 6 -->
-                    <div class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-red-500/20 text-red-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">Security</div>
-                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">HomeLab Command Center</h3>
-                        <p class="text-gray-400 mb-6 text-sm">Centralized server monitoring application with real-time health tracking, security alerting, and Discord notifications.</p>
-
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Django</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">Discord API</span>
-                            <span class="px-2 py-1 bg-gray-800 text-xs text-gray-300 border border-gray-700">HTMX</span>
-                        </div>
-
-                        <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
-                            <span class="flex items-center gap-1"><i class="fas fa-shield-virus text-red-400"></i> Security</span>
-                            <span class="flex items-center gap-1"><i class="fas fa-bell"></i> Alerts</span>
-                            <span class="flex items-center gap-1"><i class="fas fa-chart-area"></i> Metrics</span>
                         </div>
                     </div>
                 </div>
@@ -692,24 +804,33 @@
         <!-- Process -->
         <section class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-white mb-4 text-center">My <span class="text-neon-green">Development Process</span></h2>
-                <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">AI-accelerated development with human-enforced security oversight. Maximizing speed and modernity while maintaining strict cybersecurity standards.</p>
+                <h2 class="text-3xl font-bold text-white mb-4 text-center">My <span class="text-neon-green">Development
+                        Process</span></h2>
+                <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">AI-accelerated development with
+                    human-enforced security oversight. Maximizing speed and modernity while maintaining strict
+                    cybersecurity standards.</p>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Phase 1 -->
-                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group">
-                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        
+                    <div
+                        class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group">
+                        <div
+                            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-neon-green/10 border border-neon-green rounded-full flex items-center justify-center animate-pulse">
+                            <div
+                                class="w-10 h-10 bg-neon-green/10 border border-neon-green rounded-full flex items-center justify-center animate-pulse">
                                 <i class="fas fa-robot text-neon-green"></i>
                             </div>
                             <span class="text-xs text-neon-green font-bold uppercase tracking-wider">Phase 01</span>
                         </div>
 
-                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">AI Synthesis & Review</h3>
-                        <p class="text-sm text-gray-400 mb-4">AI proposes architecture from requirements. Manual security and scalability review before approval.</p>
-                        
+                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">AI
+                            Synthesis & Review</h3>
+                        <p class="text-sm text-gray-400 mb-4">AI proposes architecture from requirements. Manual
+                            security and scalability review before approval.</p>
+
                         <div class="flex items-center gap-2 text-xs text-gray-500">
                             <i class="fas fa-check-circle text-neon-green"></i>
                             <span>Human-Verified</span>
@@ -717,19 +838,25 @@
                     </div>
 
                     <!-- Phase 2 -->
-                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group" style="animation-delay: 150ms">
-                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        
+                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group"
+                        style="animation-delay: 150ms">
+                        <div
+                            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-blue-500/10 border border-blue-500 rounded-full flex items-center justify-center animate-pulse">
+                            <div
+                                class="w-10 h-10 bg-blue-500/10 border border-blue-500 rounded-full flex items-center justify-center animate-pulse">
                                 <i class="fas fa-cubes text-blue-400"></i>
                             </div>
                             <span class="text-xs text-blue-400 font-bold uppercase tracking-wider">Phase 02</span>
                         </div>
 
-                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">Atomic Phasing</h3>
-                        <p class="text-sm text-gray-400 mb-4">Agent breaks architecture into decoupled modules. Prevents lateral movement and enables isolated testing.</p>
-                        
+                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">
+                            Atomic Phasing</h3>
+                        <p class="text-sm text-gray-400 mb-4">Agent breaks architecture into decoupled modules. Prevents
+                            lateral movement and enables isolated testing.</p>
+
                         <div class="flex items-center gap-2 text-xs text-gray-500">
                             <i class="fas fa-shield-alt text-blue-400"></i>
                             <span>Security-First</span>
@@ -737,19 +864,25 @@
                     </div>
 
                     <!-- Phase 3 -->
-                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group" style="animation-delay: 300ms">
-                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        
+                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group"
+                        style="animation-delay: 300ms">
+                        <div
+                            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-yellow-500/10 border border-yellow-500 rounded-full flex items-center justify-center animate-pulse">
+                            <div
+                                class="w-10 h-10 bg-yellow-500/10 border border-yellow-500 rounded-full flex items-center justify-center animate-pulse">
                                 <i class="fas fa-user-shield text-yellow-400"></i>
                             </div>
                             <span class="text-xs text-yellow-400 font-bold uppercase tracking-wider">Phase 03</span>
                         </div>
 
-                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">Hybrid Auditing</h3>
-                        <p class="text-sm text-gray-400 mb-4">Manual function checks documented, then fed to security agent for automated vulnerability assessment.</p>
-                        
+                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">
+                            Hybrid Auditing</h3>
+                        <p class="text-sm text-gray-400 mb-4">Manual function checks documented, then fed to security
+                            agent for automated vulnerability assessment.</p>
+
                         <div class="flex items-center gap-2 text-xs text-gray-500">
                             <i class="fas fa-search text-yellow-400"></i>
                             <span>Dual-Layer</span>
@@ -757,19 +890,25 @@
                     </div>
 
                     <!-- Phase 4 -->
-                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group" style="animation-delay: 450ms">
-                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        
+                    <div class="relative bg-cyber-black border border-gray-800 p-6 hover:border-neon-green transition-all duration-500 group"
+                        style="animation-delay: 450ms">
+                        <div
+                            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-green to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-purple-500/10 border border-purple-500 rounded-full flex items-center justify-center animate-pulse">
+                            <div
+                                class="w-10 h-10 bg-purple-500/10 border border-purple-500 rounded-full flex items-center justify-center animate-pulse">
                                 <i class="fas fa-sync-alt text-purple-400"></i>
                             </div>
                             <span class="text-xs text-purple-400 font-bold uppercase tracking-wider">Phase 04</span>
                         </div>
 
-                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">Iterative Testing</h3>
-                        <p class="text-sm text-gray-400 mb-4">Continuous loop of manual and agent-led testing after every feature to maintain system integrity.</p>
-                        
+                        <h3 class="text-lg font-bold text-white mb-3 group-hover:text-neon-green transition-colors">
+                            Iterative Testing</h3>
+                        <p class="text-sm text-gray-400 mb-4">Continuous loop of manual and agent-led testing after
+                            every feature to maintain system integrity.</p>
+
                         <div class="flex items-center gap-2 text-xs text-gray-500">
                             <i class="fas fa-infinity text-purple-400"></i>
                             <span>Continuous</span>
@@ -778,77 +917,112 @@
                 </div>
             </div>
         </section>
+    </main>
 
-        <!-- Contact Section -->
-        <section class="py-20 bg-cyber-gray/30 relative overflow-hidden">
-             <!-- Decorative glowing lines -->
-             <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-neon-green to-transparent opacity-30"></div>
-
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold text-white mb-6">Initialize <br><span class="text-neon-green">Connection</span></h2>
-                    <p class="text-gray-400 mb-8">Ready to bring your web app idea to life? Specialized in creating polished, user-friendly web applications.</p>
-
-                    <div class="flex items-center gap-4 text-gray-300 mb-8 p-4 border border-gray-800 bg-cyber-black rounded">
-                        <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-neon-green">
-                            <i class="fas fa-map-marker-alt"></i>
+    <footer x-data class="bg-cyber-black border-t border-neon-green/20 pt-16 pb-8 text-gray-400">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Column 1: Branding -->
+                <div class="space-y-6">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div
+                            class="w-12 h-12 border-2 border-neon-green rounded-lg flex items-center justify-center bg-cyber-black group-hover:shadow-neon transition-all duration-300">
+                            <span class="text-xl font-bold text-neon-green"
+                                x-text="$store.config.data.personal.initials"></span>
                         </div>
-                        <div>
-                            <p class="text-xs text-gray-500 uppercase">Location</p>
-                            <p x-text="$store.config.data.personal.location"></p>
+                        <span class="text-2xl font-bold text-white group-hover:text-neon-green transition-colors">
+                            <span x-text="$store.config.data.personal.name"></span><span
+                                class="text-neon-green">_</span>
+                        </span>
+                    </a>
+                    <p class="text-sm leading-relaxed border-l-2 border-neon-green/30 pl-4">
+                        Building secure, high-performance web applications with the HAT (HTMX, Alpine, Tailwind) stack.
+                        Focused on modern aesthetics and robust security.
+                    </p>
+                </div>
+
+                <!-- Column 2: Navigation -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-neon-green"></span> Menu
+                    </h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a :href="$store.config.data.navigation.projects.url"
+                                class="hover:text-neon-green hover:translate-x-1 transition-all inline-block"
+                                x-text="$store.config.data.navigation.projects.title"></a></li>
+                        <li><a :href="$store.config.data.navigation.skills.url"
+                                class="hover:text-neon-green hover:translate-x-1 transition-all inline-block"
+                                x-text="$store.config.data.navigation.skills.title"></a></li>
+                        <li><a :href="$store.config.data.navigation.process.url"
+                                class="hover:text-neon-green hover:translate-x-1 transition-all inline-block"
+                                x-text="$store.config.data.navigation.process.title"></a></li>
+                        <li><a :href="$store.config.data.navigation.contact.url"
+                                class="hover:text-neon-green hover:translate-x-1 transition-all inline-block"
+                                x-text="$store.config.data.navigation.contact.title"></a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-neon-green"></span> Contact
+                    </h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-envelope text-neon-green mt-1"></i>
+                            <a :href="'mailto:' + $store.config.data.personal.email"
+                                class="hover:text-white transition-colors"
+                                x-text="$store.config.data.personal.email"></a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-neon-green mt-1"></i>
+                            <span x-text="$store.config.data.personal.location"></span>
+                        </li>
+                        <li class="pt-2">
+                            <a :href="$store.config.data.resumeUrl"
+                                class="inline-flex items-center gap-2 px-4 py-2 border border-neon-green/30 hover:border-neon-green hover:bg-neon-green/10 text-neon-green transition-all">
+                                <i class="fas fa-file-pdf"></i> Download Resume
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Socials -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-neon-green"></span> Connect
+                    </h4>
+                    <div class="flex gap-4">
+                        <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                            <i class="fab fa-github text-lg group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                            <i class="fab fa-linkedin-in text-lg group-hover:scale-110 transition-transform"></i>
+                        </a>
+                    </div>
+                    <div class="mt-8 p-4 bg-cyber-gray border border-gray-800 rounded-sm">
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-1">System Status</p>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 bg-neon-green rounded-full animate-pulse shadow-neon-sm"></div>
+                            <span class="text-xs font-mono text-neon-green">ALL SYSTEMS OPERATIONAL</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Mailto Form Submission -->
-                <form x-data="{
-                        name: '',
-                        email: '',
-                        message: '',
-                        sendMail() {
-                            const recipient = $store.config.data.personal.email;
-                            const subject = `Portfolio Contact from ${this.name}`;
-                            const body = `Name: ${this.name}\nEmail: ${this.email}\n\nMessage:\n${this.message}`;
-                            window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                        }
-                    }"
-                    @submit.prevent="sendMail"
-                    class="bg-cyber-black p-8 border border-gray-800 shadow-2xl relative">
-
-                    <!-- Neon Border Effect -->
-                    <div class="absolute -inset-[1px] bg-gradient-to-r from-neon-green to-blue-600 opacity-20 blur-sm pointer-events-none"></div>
-
-                    <div class="space-y-6 relative z-10">
-                        <div>
-                            <label class="block text-xs text-neon-green mb-2 uppercase tracking-widest">Identify</label>
-                            <input type="text" x-model="name" required class="w-full bg-cyber-gray border border-gray-700 text-white p-3 focus:outline-none focus:border-neon-green focus:shadow-neon-sm transition-all" placeholder="Enter Name_">
-                        </div>
-                        <div>
-                            <label class="block text-xs text-neon-green mb-2 uppercase tracking-widest">Contact Point</label>
-                            <input type="email" x-model="email" required class="w-full bg-cyber-gray border border-gray-700 text-white p-3 focus:outline-none focus:border-neon-green focus:shadow-neon-sm transition-all" placeholder="Enter Email_">
-                        </div>
-                        <div>
-                            <label class="block text-xs text-neon-green mb-2 uppercase tracking-widest">Payload</label>
-                            <textarea x-model="message" rows="4" required class="w-full bg-cyber-gray border border-gray-700 text-white p-3 focus:outline-none focus:border-neon-green focus:shadow-neon-sm transition-all" placeholder="Enter Message_"></textarea>
-                        </div>
-
-                        <button type="submit"
-                                class="w-full bg-neon-green text-black font-bold py-3 uppercase tracking-widest hover:bg-white hover:shadow-neon transition-all flex items-center justify-center gap-2">
-                            <span>Transmit Data</span>
-                        </button>
-                    </div>
-                </form>
             </div>
-        </section>
 
-        <div class="text-center py-12">
-            <a :href="$store.config.data.resumeUrl" class="inline-block text-neon-green border-b border-neon-green hover:text-white hover:border-white transition-colors pb-1">View Resume.pdf</a>
-        </div>
-    </main>
-
-    <footer x-data class="bg-cyber-black border-t border-gray-800 py-8 text-center text-gray-500 text-sm">
-        <div class="container mx-auto px-6">
-            <p>&copy; <span x-text="new Date().getFullYear()"></span> <span x-text="$store.config.data.personal.name"></span>. All rights reserved. System v1.0</p>
+            <div
+                class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; <span x-text="new Date().getFullYear()"></span> <span
+                        x-text="$store.config.data.personal.name"></span>. &lt;All rights reserved /&gt;</p>
+                <div class="flex gap-6">
+                    <span class="text-gray-600">v1.2.0-stable</span>
+                    <a href="#top" class="text-neon-green hover:text-white transition-colors flex items-center gap-2">
+                        BACK TO TOP <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="config.js"></script>
@@ -884,4 +1058,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -64,24 +64,7 @@ window.siteConfig = {
             "repoUrl": "#",
             "demoUrl": "#"
         },
-        {
-            "title": "HomeLab Master Directory",
-            "description": "Lightweight Django service dashboard with automatic LAN vs Tailscale routing and real-time status monitoring.",
-            "tags": ["Django", "Docker", "Tailscale"],
-            "category": "DevOps",
-            "categoryColor": "text-cyan-400 bg-cyan-500/20",
-            "repoUrl": "#",
-            "demoUrl": "#"
-        },
-        {
-            "title": "HomeLab Command Center",
-            "description": "Centralized server monitoring application with real-time health tracking, security alerting, and Discord notifications.",
-            "tags": ["Django", "Discord API", "HTMX"],
-            "category": "Security",
-            "categoryColor": "text-red-400 bg-red-500/20",
-            "repoUrl": "#",
-            "demoUrl": "#"
-        }
+
     ],
     "formspreeId": "mpqjpaeq",
     "resumeUrl": "#"

@@ -272,10 +272,92 @@
         </div>
     </main>
 
-    <footer x-data class="bg-cyber-black border-t border-gray-800 py-8 text-center text-gray-500 text-sm mt-auto">
+    <footer x-data class="bg-cyber-black border-t border-neon-green/20 pt-16 pb-8 text-gray-400 mt-auto">
         <div class="container mx-auto px-6">
-            <p>&copy; <span x-text="new Date().getFullYear()"></span> <span
-                    x-text="$store.config.data.personal.name"></span>. All rights reserved. System v1.0</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Column 1: Branding -->
+                <div class="space-y-6">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div class="w-12 h-12 border-2 border-neon-green rounded-lg flex items-center justify-center bg-cyber-black group-hover:shadow-neon transition-all duration-300">
+                            <span class="text-xl font-bold text-neon-green" x-text="$store.config.data.personal.initials"></span>
+                        </div>
+                        <span class="text-2xl font-bold text-white group-hover:text-neon-green transition-colors">
+                            <span x-text="$store.config.data.personal.name"></span><span class="text-neon-green">_</span>
+                        </span>
+                    </a>
+                    <p class="text-sm leading-relaxed border-l-2 border-neon-green/30 pl-4">
+                        Building secure, high-performance web applications with the HAT (HTMX, Alpine, Tailwind) stack. 
+                        Focused on modern aesthetics and robust security.
+                    </p>
+                </div>
+
+                <!-- Column 2: Navigation -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-neon-green"></span> Menu
+                    </h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a :href="$store.config.data.navigation.projects.url" class="hover:text-neon-green hover:translate-x-1 transition-all inline-block" x-text="$store.config.data.navigation.projects.title"></a></li>
+                        <li><a :href="$store.config.data.navigation.skills.url" class="hover:text-neon-green hover:translate-x-1 transition-all inline-block" x-text="$store.config.data.navigation.skills.title"></a></li>
+                        <li><a :href="$store.config.data.navigation.process.url" class="hover:text-neon-green hover:translate-x-1 transition-all inline-block" x-text="$store.config.data.navigation.process.title"></a></li>
+                        <li><a :href="$store.config.data.navigation.contact.url" class="hover:text-neon-green hover:translate-x-1 transition-all inline-block" x-text="$store.config.data.navigation.contact.title"></a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-neon-green"></span> Contact
+                    </h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-envelope text-neon-green mt-1"></i>
+                            <a :href="'mailto:' + $store.config.data.personal.email" class="hover:text-white transition-colors" x-text="$store.config.data.personal.email"></a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-neon-green mt-1"></i>
+                            <span x-text="$store.config.data.personal.location"></span>
+                        </li>
+                        <li class="pt-2">
+                            <a :href="$store.config.data.resumeUrl" class="inline-flex items-center gap-2 px-4 py-2 border border-neon-green/30 hover:border-neon-green hover:bg-neon-green/10 text-neon-green transition-all">
+                                <i class="fas fa-file-pdf"></i> Download Resume
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Socials -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-neon-green"></span> Connect
+                    </h4>
+                    <div class="flex gap-4">
+                        <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                            <i class="fab fa-github text-lg group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                            <i class="fab fa-linkedin-in text-lg group-hover:scale-110 transition-transform"></i>
+                        </a>
+                    </div>
+                    <div class="mt-8 p-4 bg-cyber-gray border border-gray-800 rounded-sm">
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-1">System Status</p>
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 bg-neon-green rounded-full animate-pulse shadow-neon-sm"></div>
+                            <span class="text-xs font-mono text-neon-green">ALL SYSTEMS OPERATIONAL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; <span x-text="new Date().getFullYear()"></span> <span x-text="$store.config.data.personal.name"></span>. &lt;All rights reserved /&gt;</p>
+                <div class="flex gap-6">
+                    <span class="text-gray-600">v1.2.0-stable</span>
+                    <a href="#top" class="text-neon-green hover:text-white transition-colors flex items-center gap-2">
+                        BACK TO TOP <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
