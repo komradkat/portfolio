@@ -53,7 +53,8 @@ window.siteConfig = {
             "category": "Transportation",
             "categoryColor": "text-purple-400 bg-purple-500/20",
             "repoUrl": "https://github.com/komradkat/hainna",
-            "demoUrl": "https://demos-4vd.pages.dev/ftms-demo/"
+            "demoUrl": "https://demos-4vd.pages.dev/ftms-demo/",
+            "image": "assets/img/ftms-dash-pic.png"
         },
         {
             "title": "Substrata By Nexus Security",
