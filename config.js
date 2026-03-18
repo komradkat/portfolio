@@ -47,6 +47,15 @@ window.siteConfig = {
             "demoUrl": "#"
         },
         {
+            "title": "HainNa?",
+            "description": "Fleet Tracking and Management System for Passenger Vehicles",
+            "tags": ["Python", "Django", "OpenStreetMap", "PyWebView"],
+            "category": "Transportation",
+            "categoryColor": "text-purple-400 bg-purple-500/20",
+            "repoUrl": "https://github.com/komradkat/hainna",
+            "demoUrl": "https://demos-4vd.pages.dev/ftms-demo/"
+        },
+        {
             "title": "Substrata By Nexus Security",
             "description": "High-security, zero-trust, TCTS (Thick Client, Thin Server) Model messaging platform with end-to-end encryption and blind relay architecture.",
             "tags": ["Python", "Django Channels", "Cryptography", "PyWebView"],
