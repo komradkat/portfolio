@@ -50,12 +50,10 @@
         content="Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
     <meta property="twitter:image" content="assets/social-share.png">
 
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Alpine.js Plugins -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.13.3/dist/cdn.min.js"
-        integrity="sha384-vdHU5Di2QosiIutFX9fxSl943Vt8CGqVrWtqLDJ7f9UAsCQ7qFb8n7TwDvkZG7iJ"
-        crossorigin="anonymous"></script>
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"
         integrity="sha384-Rpe/8orFUm5Q1GplYBHxbuA8Az8O8C5sAoOsdbRWkqPjKFaxPgGZipj4zeHL7lxX"
@@ -67,6 +65,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
     <script>
         tailwind.config = {
@@ -100,16 +100,41 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Prevent Flash of Unstyled Content (FOUC) and light flashes between page loads */
+        html {
+            background-color: #050505 !important;
+        }
+        body {
+            background-color: transparent !important;
+            color: #00ff00 !important;
+            background-image: 
+                linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center;
+        }
+        /* Smooth HTMX page transitions */
+        #main-content {
+            opacity: 1;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .htmx-swapping #main-content {
+            opacity: 0;
+        }
+    </style>
+    <!-- HTMX -->
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.9.10/dist/htmx.min.js"></script>
 </head>
 
-<body x-data
-    class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden">
+<body id="top" x-data
+    class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden"
+    hx-boost="true" hx-target="#main-content" hx-select="#main-content" hx-swap="outerHTML show:window:top swap:200ms">
 
-    <!-- Matrix Rain Background -->
-    <canvas id="matrix-rain" class="fixed inset-0 pointer-events-none z-[-1] opacity-20"></canvas>
+    <!-- Background Canvas for Matrix Rain -->
+    <canvas id="matrix-rain" class="fixed inset-0 -z-50 pointer-events-none opacity-[0.18]"></canvas>
 
-    <script src="assets/js/matrix-rain.js"></script>
+
 
     <!-- Header -->
     <header x-data="{ scrolled: false, mobileMenu: false }" x-cloak
@@ -149,23 +174,23 @@
 
             <!-- Social Links (Desktop) -->
             <div class="hidden md:flex items-center gap-4">
-                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer"
+                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
                     class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer"
+                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                     class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="'mailto:' + $store.config.data.personal.email"
+                <a :href="'mailto:' + $store.config.data.personal.email" aria-label="Send email"
                     class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-neon-green focus:outline-none">
-                <i class="fas" :class="mobileMenu ? 'fa-times' : 'fa-bars'" class="text-2xl"></i>
+            <button @click="mobileMenu = !mobileMenu" :aria-expanded="mobileMenu" aria-label="Toggle navigation menu" class="md:hidden text-neon-green focus:ring-2 focus:ring-neon-green focus:outline-none rounded">
+                <i class="fas text-2xl" :class="mobileMenu ? 'fa-times' : 'fa-bars'"></i>
             </button>
         </div>
 
@@ -189,15 +214,15 @@
 
             <!-- Social Links (Mobile) -->
             <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
-                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer"
+                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
                     class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-github"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer"
+                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                     class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a :href="'mailto:' + $store.config.data.personal.email"
+                <a :href="'mailto:' + $store.config.data.personal.email" aria-label="Send email"
                     class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fas fa-envelope"></i>
                 </a>
@@ -205,14 +230,14 @@
         </div>
     </header>
 
-    <main class="pt-24">
+    <main id="main-content" class="pt-24">
         <!-- Hero Section -->
         <section class="min-h-[calc(100vh-6rem)] flex items-center justify-center relative overflow-hidden" x-data>
             <div
-                class="absolute top-0 right-0 w-96 h-96 bg-neon-green rounded-full mix-blend-multiply filter blur-[128px] opacity-10 animate-pulse">
+                class="absolute top-0 right-0 w-96 h-96 bg-neon-green rounded-full mix-blend-screen filter blur-[128px] opacity-10 animate-pulse">
             </div>
             <div
-                class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-[128px] opacity-5">
+                class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-screen filter blur-[128px] opacity-5">
             </div>
 
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -368,38 +393,30 @@
                 <span
                     class="inline-block px-3 py-1 border border-neon-green text-xs uppercase tracking-widest mb-4 hover:bg-neon-green hover:text-black transition-colors cursor-crosshair">Featured
                     Project</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-2">BIMS-<span class="text-neon-green">Pro</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-2">Vexta / <span class="text-neon-green">Substrata</span>
                 </h2>
-                <p class="text-gray-400 mb-8 max-w-3xl mx-auto">Barangay Information Management System built with Django
-                    and the HAT Stack (HTMX, Alpine.js, TailwindCSS). A modern, security-focused government application
-                    designed for speed, data integrity, and exceptional UX.</p>
+                <p class="text-gray-400 mb-8 max-w-3xl mx-auto">Zero-trust, end-to-end encrypted messaging ecosystem consisting of a Flet desktop app (Vexta)
+                    and a Django Channels WebSocket bridge (vexta_bridge) running on Redis and Docker. Engineered with a Thick-Client-Thin-Server (TCTS) model for absolute data privacy.</p>
 
                 <!-- Tech Stack Summary -->
                 <div class="max-w-4xl mx-auto mb-12 bg-cyber-black border border-neon-green/30 p-6 text-left">
                     <h3 class="text-xl font-bold text-neon-green mb-4 text-center">Core Technology Stack</h3>
                     <div class="grid md:grid-cols-2 gap-6 text-sm">
                         <div>
-                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Backend: Django
-                                5.x + PostgreSQL</p>
-                            <p class="text-gray-400 pl-4">Python-powered logic with relational database for unlimited
-                                records and concurrent access</p>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Backend: Django Channels + Redis</p>
+                            <p class="text-gray-400 pl-4">Asynchronous WebSocket messaging bridge utilizing Redis for channel layer event propagation.</p>
                         </div>
                         <div>
-                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Frontend: HTMX +
-                                Alpine.js</p>
-                            <p class="text-gray-400 pl-4">Stutter-free SPA experience without heavy JavaScript
-                                frameworks</p>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Client UI: Flet Desktop (Python/Flutter)</p>
+                            <p class="text-gray-400 pl-4">Premium, cross-platform hardware-integrated desktop application with smooth fluid layout.</p>
                         </div>
                         <div>
-                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Styling:
-                                Tailwind + DaisyUI</p>
-                            <p class="text-gray-400 pl-4">Professional, mobile-friendly government-ready UI components
-                            </p>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Encryption: AES-GCM + RSA-4096</p>
+                            <p class="text-gray-400 pl-4">Zero-knowledge end-to-end client-side encryption. The server only sees blinded payloads.</p>
                         </div>
                         <div>
-                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> Security:
-                                Cryptography + Audit Logs</p>
-                            <p class="text-gray-400 pl-4">Hardware-locked licensing and complete change tracking</p>
+                            <p class="text-white font-bold mb-2"><span class="text-neon-green">></span> DevOps: Docker & Compose</p>
+                            <p class="text-gray-400 pl-4">Containerized deployment architecture for consistent networking, microservices, and database states.</p>
                         </div>
                     </div>
                 </div>
@@ -408,34 +425,30 @@
                 <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
                     <div
                         class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
-                        <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">⚡</span>
-                        <span class="text-sm text-gray-500 uppercase">Fast Development</span>
-                    </div>
-                    <div
-                        class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
                         <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">🔒</span>
-                        <span class="text-sm text-gray-500 uppercase">Security First</span>
+                        <span class="text-sm text-gray-500 uppercase">E2E Encryption</span>
                     </div>
                     <div
                         class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
-                        <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">📈</span>
-                        <span class="text-sm text-gray-500 uppercase">Scalable</span>
+                        <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">⚡</span>
+                        <span class="text-sm text-gray-500 uppercase">Real-Time Sockets</span>
+                    </div>
+                    <div
+                        class="p-6 border border-neon-green/30 bg-cyber-black hover:border-neon-green transition-colors group">
+                        <span class="text-3xl font-bold text-white group-hover:text-neon-green block mb-1">🛡️</span>
+                        <span class="text-sm text-gray-500 uppercase">Zero-Trust TCTS</span>
                     </div>
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-4">
                     <span
-                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">Django
-                        ORM</span>
+                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">Flet (Flutter)</span>
                     <span
-                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">HTMX
-                        AJAX</span>
+                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">WebSocket Relay</span>
                     <span
-                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">WeasyPrint
-                        PDF</span>
+                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">RSA-4096 / AES</span>
                     <span
-                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">QR
-                        Verification</span>
+                        class="px-4 py-2 border border-gray-700 text-gray-400 text-sm hover:border-neon-green hover:text-neon-green transition-colors">Redis Channel Layer</span>
                 </div>
             </div>
         </section>
@@ -450,10 +463,9 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12">
-                    <!-- Programming Languages -->
+                    <!-- Programming Languages & Desktop -->
                     <div class="space-y-6">
-                        <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Programming Languages
-                        </h3>
+                        <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Languages & Desktop</h3>
 
                         <!-- Python -->
                         <div
@@ -480,15 +492,14 @@
                             </div>
                         </div>
 
-                        <!-- C++ -->
+                        <!-- TypeScript & JS -->
                         <div
                             class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i
-                                        class="fas fa-code text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <i class="fab fa-js-square text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
                                     <span
-                                        class="text-white font-bold group-hover:text-neon-green transition-colors">C++</span>
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">TypeScript / JS</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -500,19 +511,45 @@
                             </div>
                             <div class="flex flex-wrap gap-2">
                                 <span
-                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Systems</span>
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Vite</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Interactive GIS</span>
                             </div>
                         </div>
 
-                        <!-- Java -->
+                        <!-- Flet (Desktop GUI) -->
                         <div
                             class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i
-                                        class="fab fa-java text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <i class="fas fa-desktop text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
                                     <span
-                                        class="text-white font-bold group-hover:text-neon-green transition-colors">Java</span>
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">Flet (Desktop GUI)</span>
+                                </div>
+                                <div class="flex gap-1">
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Cross-Platform</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">StealthText / Vexta</span>
+                            </div>
+                        </div>
+
+                        <!-- AI & Vision -->
+                        <div
+                            class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-brain text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <span
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">AI & Vision</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -524,63 +561,25 @@
                             </div>
                             <div class="flex flex-wrap gap-2">
                                 <span
-                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">OOP</span>
-                            </div>
-                        </div>
-
-                        <!-- VB.NET -->
-                        <div
-                            class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
-                            <div class="flex items-center justify-between mb-3">
-                                <div class="flex items-center gap-3">
-                                    <i
-                                        class="fas fa-window-maximize text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
-                                    <span
-                                        class="text-white font-bold group-hover:text-neon-green transition-colors">VB.NET</span>
-                                </div>
-                                <div class="flex gap-1">
-                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
-                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
-                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
-                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
-                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- PHP -->
-                        <div
-                            class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
-                            <div class="flex items-center justify-between mb-3">
-                                <div class="flex items-center gap-3">
-                                    <i
-                                        class="fab fa-php text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
-                                    <span
-                                        class="text-white font-bold group-hover:text-neon-green transition-colors">PHP</span>
-                                </div>
-                                <div class="flex gap-1">
-                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
-                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
-                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
-                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
-                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
-                                </div>
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">DeepFace / TF / Torch</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Gemini SDK</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Web Technologies -->
+                    <!-- Web & Infrastructure -->
                     <div class="space-y-6">
-                        <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Web Technologies</h3>
+                        <h3 class="text-xl text-white font-bold border-b border-gray-800 pb-2">Web & Infrastructure</h3>
 
-                        <!-- Django -->
+                        <!-- Django Stack -->
                         <div
                             class="border border-neon-green/30 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
                                     <i class="fas fa-server text-2xl text-neon-green"></i>
                                     <span
-                                        class="text-white font-bold group-hover:text-neon-green transition-colors">Django</span>
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">Django Stack</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -592,24 +591,20 @@
                             </div>
                             <div class="flex flex-wrap gap-2">
                                 <span
-                                    class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">ORM</span>
+                                    class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Channels WebSockets</span>
                                 <span
-                                    class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">REST
-                                    APIs</span>
-                                <span
-                                    class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">Templates</span>
+                                    class="px-2 py-1 bg-neon-green/10 text-neon-green text-xs border border-neon-green/30">PostgreSQL</span>
                             </div>
                         </div>
 
-                        <!-- HTML/CSS -->
+                        <!-- HTMX / Alpine -->
                         <div
                             class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i
-                                        class="fab fa-html5 text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <i class="fas fa-bolt text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
                                     <span
-                                        class="text-white font-bold group-hover:text-neon-green transition-colors">HTML/CSS</span>
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">HTMX / Alpine</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -621,19 +616,20 @@
                             </div>
                             <div class="flex flex-wrap gap-2">
                                 <span
-                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Responsive</span>
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Reactive SPA</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">TailwindCSS</span>
                             </div>
                         </div>
 
-                        <!-- HTMX -->
+                        <!-- Docker & Redis -->
                         <div
                             class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i
-                                        class="fas fa-bolt text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <i class="fab fa-docker text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
                                     <span
-                                        class="text-white font-bold group-hover:text-neon-green transition-colors">HTMX</span>
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">Docker & Redis</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
@@ -645,27 +641,34 @@
                             </div>
                             <div class="flex flex-wrap gap-2">
                                 <span
-                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Interactivity</span>
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Containers</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Caching & Brokers</span>
                             </div>
                         </div>
 
-                        <!-- TailwindCSS -->
+                        <!-- Security & Hardening -->
                         <div
                             class="border border-gray-700 bg-cyber-black p-4 hover:border-neon-green transition-all group">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center gap-3">
-                                    <i
-                                        class="fas fa-palette text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
+                                    <i class="fas fa-lock text-2xl text-gray-400 group-hover:text-neon-green transition-colors"></i>
                                     <span
-                                        class="text-white font-bold group-hover:text-neon-green transition-colors">TailwindCSS</span>
+                                        class="text-white font-bold group-hover:text-neon-green transition-colors">Security & Hardening</span>
                                 </div>
                                 <div class="flex gap-1">
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
                                     <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
-                                    <div class="w-2 h-2 rounded-full bg-gray-700"></div>
+                                    <div class="w-2 h-2 rounded-full bg-neon-green shadow-neon-sm"></div>
                                 </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">E2E Cryptography</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-800 text-gray-400 text-xs border border-gray-700">Zero-Trust TCTS</span>
                             </div>
                         </div>
                     </div>
@@ -743,10 +746,10 @@
                     <div
                         class="bg-cyber-black border border-gray-800 p-8 hover:border-neon-green hover:shadow-neon transition-all duration-300 group cursor-pointer relative overflow-hidden">
                         <div
-                            class="absolute top-0 right-0 bg-purple-500/20 text-purple-400 px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">
-                            Zero-Trust</div>
+                            class="absolute top-0 right-0 bg-neon-green/20 text-neon-green px-3 py-1 text-xs font-bold uppercase backdrop-blur-sm">
+                            Featured</div>
                         <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">
-                            Substrata By Nexus Security</h3>
+                            Substrata / Vexta Messaging</h3>
                         <p class="text-gray-400 mb-6 text-sm">High-security, zero-trust, TCTS (Thick Client, Thin
                             Server) Model messaging platform with end-to-end encryption and blind relay architecture.
                         </p>
@@ -763,7 +766,7 @@
                         </div>
 
                         <div class="flex items-center gap-6 text-sm text-gray-500 border-t border-gray-800 pt-4">
-                            <span class="flex items-center gap-1"><i class="fas fa-user-secret text-purple-400"></i>
+                            <span class="flex items-center gap-1"><i class="fas fa-user-secret text-neon-green"></i>
                                 Privacy</span>
                             <span class="flex items-center gap-1"><i class="fas fa-lock"></i> E2E Encrypted</span>
                             <span class="flex items-center gap-1"><i class="fas fa-network-wired"></i> WebSockets</span>
@@ -993,14 +996,14 @@
                         <span class="w-2 h-2 bg-neon-green"></span> Connect
                     </h4>
                     <div class="flex gap-4">
-                        <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer"
-                            class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
-                            <i class="fab fa-github text-lg group-hover:scale-110 transition-transform"></i>
-                        </a>
-                        <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer"
-                            class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
-                            <i class="fab fa-linkedin-in text-lg group-hover:scale-110 transition-transform"></i>
-                        </a>
+                    <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                        class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                        <i class="fab fa-github text-lg group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                        class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                        <i class="fab fa-linkedin-in text-lg group-hover:scale-110 transition-transform"></i>
+                    </a>
                     </div>
                     <div class="mt-8 p-4 bg-cyber-gray border border-gray-800 rounded-sm">
                         <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-1">System Status</p>
@@ -1054,9 +1057,10 @@
                 }
             });
 
-            // Removed contactForm component as we switched to standard submission
         });
     </script>
+    <!-- Background script for Matrix Rain -->
+    <script src="assets/js/matrix-rain.js" defer></script>
 </body>
 
 </html>

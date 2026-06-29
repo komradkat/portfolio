@@ -50,10 +50,10 @@
         content="Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
     <meta property="twitter:image" content="assets/social-share.png">
 
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Alpine.js Plugins -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.13.3/dist/cdn.min.js" integrity="sha384-vdHU5Di2QosiIutFX9fxSl943Vt8CGqVrWtqLDJ7f9UAsCQ7qFb8n7TwDvkZG7iJ" crossorigin="anonymous"></script>
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" integrity="sha384-Rpe/8orFUm5Q1GplYBHxbuA8Az8O8C5sAoOsdbRWkqPjKFaxPgGZipj4zeHL7lxX" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
@@ -62,6 +62,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
     <script>
         tailwind.config = {
@@ -95,16 +97,41 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Prevent Flash of Unstyled Content (FOUC) and light flashes between page loads */
+        html {
+            background-color: #050505 !important;
+        }
+        body {
+            background-color: transparent !important;
+            color: #00ff00 !important;
+            background-image: 
+                linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center;
+        }
+        /* Smooth HTMX page transitions */
+        #main-content {
+            opacity: 1;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .htmx-swapping #main-content {
+            opacity: 0;
+        }
+    </style>
+    <!-- HTMX -->
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.9.10/dist/htmx.min.js"></script>
 </head>
 
-<body x-data
-    class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden">
+<body id="top" x-data
+    class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden"
+    hx-boost="true" hx-target="#main-content" hx-select="#main-content" hx-swap="outerHTML show:window:top swap:200ms">
 
-    <!-- Matrix Rain Background -->
-    <canvas id="matrix-rain" class="fixed inset-0 pointer-events-none z-[-1] opacity-20"></canvas>
+    <!-- Background Canvas for Matrix Rain -->
+    <canvas id="matrix-rain" class="fixed inset-0 -z-50 pointer-events-none opacity-[0.18]"></canvas>
 
-    <script src="assets/js/matrix-rain.js"></script>
+
 
     <!-- Header -->
     <header x-data="{ scrolled: false, mobileMenu: false }" x-cloak
@@ -144,23 +171,23 @@
 
             <!-- Social Links (Desktop) -->
             <div class="hidden md:flex items-center gap-4">
-                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer"
+                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
                     class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer"
+                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                     class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="'mailto:' + $store.config.data.personal.email"
+                <a :href="'mailto:' + $store.config.data.personal.email" aria-label="Send email"
                     class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-neon-green focus:outline-none">
-                <i class="fas" :class="mobileMenu ? 'fa-times' : 'fa-bars'" class="text-2xl"></i>
+            <button @click="mobileMenu = !mobileMenu" :aria-expanded="mobileMenu" aria-label="Toggle navigation menu" class="md:hidden text-neon-green focus:ring-2 focus:ring-neon-green focus:outline-none rounded">
+                <i class="fas text-2xl" :class="mobileMenu ? 'fa-times' : 'fa-bars'"></i>
             </button>
         </div>
 
@@ -184,15 +211,15 @@
 
             <!-- Social Links (Mobile) -->
             <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
-                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer"
+                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
                     class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-github"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer"
+                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                     class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a :href="'mailto:' + $store.config.data.personal.email"
+                <a :href="'mailto:' + $store.config.data.personal.email" aria-label="Send email"
                     class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
                     <i class="fas fa-envelope"></i>
                 </a>
@@ -200,7 +227,7 @@
         </div>
     </header>
 
-    <main class="pt-32 pb-20 container mx-auto px-6">
+    <main id="main-content" class="pt-32 pb-20 container mx-auto px-6">
         <!-- Page Title -->
         <div class="text-center mb-16">
             <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 glitch-text">My <span
@@ -332,10 +359,10 @@
                         <span class="w-2 h-2 bg-neon-green"></span> Connect
                     </h4>
                     <div class="flex gap-4">
-                        <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                        <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                             <i class="fab fa-github text-lg group-hover:scale-110 transition-transform"></i>
                         </a>
-                        <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                        <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                             <i class="fab fa-linkedin-in text-lg group-hover:scale-110 transition-transform"></i>
                         </a>
                     </div>
@@ -353,9 +380,9 @@
                 <p>&copy; <span x-text="new Date().getFullYear()"></span> <span x-text="$store.config.data.personal.name"></span>. &lt;All rights reserved /&gt;</p>
                 <div class="flex gap-6">
                     <span class="text-gray-600">v1.2.0-stable</span>
-                    <a href="#top" class="text-neon-green hover:text-white transition-colors flex items-center gap-2">
-                        BACK TO TOP <i class="fas fa-arrow-up"></i>
-                    </a>
+    <a href="#top" class="text-neon-green hover:text-white transition-colors flex items-center gap-2">
+        BACK TO TOP <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </a>
                 </div>
             </div>
         </div>
@@ -373,6 +400,8 @@
             });
         });
     </script>
+    <!-- Background script for Matrix Rain -->
+    <script src="assets/js/matrix-rain.js" defer></script>
 </body>
 
 </html>

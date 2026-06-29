@@ -22,8 +22,10 @@
     50% { opacity: 0; }
 }
 
-.glitch-text:hover {
-    animation: glitch 0.3s infinite;
+@media (prefers-reduced-motion: no-preference) {
+    .glitch-text:hover {
+        animation: glitch 0.3s infinite;
+    }
 }
 @keyframes glitch {
     0% { transform: translate(0) }

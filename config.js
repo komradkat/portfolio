@@ -14,7 +14,7 @@ window.siteConfig = {
         "projects": { "title": "Projects", "url": "projects.html" },
         "skills": { "title": "Skills", "url": "skills.html" },
         "process": { "title": "Process", "url": "process.html" },
-        "contact": { "title": "Contact Me", "url": "#contact" }
+        "contact": { "title": "Contact Me", "url": "#" }
     },
     "projects": [
         {
@@ -38,18 +38,18 @@ window.siteConfig = {
             "image": "assets/img/gms-dash-pic.png"
         },
         {
-            "title": "VoteWise",
-            "description": "School student government election management system with secure voting, candidate profiles, and real-time results.",
-            "tags": ["Django", "Python", "Alpine.js", "TailwindCSS"],
-            "category": "Election",
+            "title": "VoteWise AI",
+            "description": "Advanced student election platform with biometric facial anti-spoofing validation (TensorFlow, PyTorch, DeepFace), AI candidate profiles (Gemini SDK), and automated PDF results.",
+            "tags": ["Django", "TensorFlow", "PyTorch", "DeepFace", "Gemini SDK"],
+            "category": "Election AI",
             "categoryColor": "text-blue-400 bg-blue-500/20",
-            "repoUrl": "#",
-            "demoUrl": "#"
+            "repoUrl": "https://github.com/komradkat/VoteWise2",
+            "demoUrl": "under-construction.html"
         },
         {
-            "title": "HainNa?",
-            "description": "Fleet Tracking and Management System for Passenger Vehicles",
-            "tags": ["Python", "Django", "OpenStreetMap", "PyWebView"],
+            "title": "FleetCore",
+            "description": "Terminal-aware fleet dispatch and passenger booking platform for Philippine provincial bus/van operations with live GPS tracking, POS ticket issuance, and multi-terminal management.",
+            "tags": ["Django", "HTMX", "Alpine.js", "Traccar GPS", "PostgreSQL"],
             "category": "Transportation",
             "categoryColor": "text-purple-400 bg-purple-500/20",
             "repoUrl": "https://github.com/komradkat/hainna",
@@ -57,24 +57,32 @@ window.siteConfig = {
             "image": "assets/img/ftms-dash-pic.png"
         },
         {
-            "title": "Substrata By Nexus Security",
-            "description": "High-security, zero-trust, TCTS (Thick Client, Thin Server) Model messaging platform with end-to-end encryption and blind relay architecture.",
-            "tags": ["Python", "Django Channels", "Cryptography", "PyWebView"],
-            "category": "Zero-Trust",
-            "categoryColor": "text-purple-400 bg-purple-500/20",
-            "repoUrl": "#",
-            "demoUrl": "#"
+            "title": "Substrata / Vexta Messaging",
+            "description": "Zero-trust, end-to-end encrypted messaging ecosystem consisting of a Flet desktop app (Vexta) and a Django Channels WebSocket bridge (vexta_bridge) running on Redis and Docker.",
+            "tags": ["Python", "Flet", "Django Channels", "Redis", "Docker", "Cryptography"],
+            "category": "Featured",
+            "categoryColor": "text-neon-green bg-neon-green/20",
+            "repoUrl": "https://github.com/komradkat/vexta_bridge",
+            "demoUrl": "under-construction.html"
         },
         {
             "title": "AutoLinkX",
-            "description": "Automotive marketplace platform for browsing, listing, and purchasing vehicles with user authentication.",
-            "tags": ["Django", "SQLite", "Bootstrap"],
+            "description": "Automotive marketplace platform for browsing, listing, and purchasing vehicles with secure user authentication.",
+            "tags": ["Django", "SQLite", "TailwindCSS"],
             "category": "Marketplace",
             "categoryColor": "text-orange-400 bg-orange-500/20",
-            "repoUrl": "#",
-            "demoUrl": "#"
+            "repoUrl": "https://github.com/komradkat/autolinkx-django",
+            "demoUrl": "under-construction.html"
         },
-
+        {
+            "title": "StealthText",
+            "description": "Secure desktop app for text encryption, image steganography, and custom QR generation. Integrates Python Keyring for hardware-level credential protection.",
+            "tags": ["Python", "Flet", "OpenCV", "Cryptography", "Keyring", "Pillow"],
+            "category": "Desktop GUI",
+            "categoryColor": "text-cyan-400 bg-cyan-500/20",
+            "repoUrl": "https://github.com/komradkat/StealthText",
+            "demoUrl": "under-construction.html"
+        }
     ],
     "formspreeId": "mpqjpaeq",
     "resumeUrl": "#"

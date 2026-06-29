@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,18 +45,20 @@
     <meta property="twitter:description" content="Web Developer, AI Orchestrator, and Cybersecurity Enthusiast specializing in Django, Python, and secure web applications.">
     <meta property="twitter:image" content="assets/social-share.png">
     
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Alpine.js Plugins -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.13.3/dist/cdn.min.js" integrity="sha384-vdHU5Di2QosiIutFX9fxSl943Vt8CGqVrWtqLDJ7f9UAsCQ7qFb8n7TwDvkZG7iJ" crossorigin="anonymous"></script>
     <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" integrity="sha384-Rpe/8orFUm5Q1GplYBHxbuA8Az8O8C5sAoOsdbRWkqPjKFaxPgGZipj4zeHL7lxX" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" integrity="sha384-Rpe/8orFUm5Q1GplYBHxbuA8Az8O8C5sAoOsdbRWkqPjKFaxPgGzipj4zeHL7lxX" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous">
     <!-- Google Fonts: JetBrains Mono (Hacker Font) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
     <script>
         tailwind.config = {
@@ -90,9 +92,38 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Prevent Flash of Unstyled Content (FOUC) and light flashes between page loads */
+        html {
+            background-color: #050505 !important;
+        }
+        body {
+            background-color: transparent !important;
+            color: #00ff00 !important;
+            background-image: 
+                linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center;
+        }
+        /* Smooth HTMX page transitions */
+        #main-content {
+            opacity: 1;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .htmx-swapping #main-content {
+            opacity: 0;
+        }
+    </style>
+    <!-- HTMX -->
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.9.10/dist/htmx.min.js"></script>
 </head>
-<body x-data class="bg-cyber-black text-neon-green font-mono flex flex-col items-center justify-center min-h-screen text-center p-6 relative overflow-hidden">
+<body id="top" x-data class="bg-cyber-black text-neon-green font-mono selection:bg-neon-green selection:text-black antialiased overflow-x-hidden" hx-boost="true" hx-target="#main-content" hx-select="#main-content" hx-swap="outerHTML show:window:top swap:200ms">
+
+    <!-- Background Canvas for Matrix Rain -->
+    <canvas id="matrix-rain" class="fixed inset-0 -z-50 pointer-events-none opacity-[0.18]"></canvas>
+
+
 
     <!-- Header -->
     <header x-data="{ scrolled: false, mobileMenu: false }"
@@ -120,20 +151,20 @@
 
             <!-- Social Links (Desktop) -->
             <div class="hidden md:flex items-center gap-4">
-                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
                 </a>
-                <a :href="'mailto:' + $store.config.data.personal.email" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                <a :href="'mailto:' + $store.config.data.personal.email" aria-label="Send email" class="w-9 h-9 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                     <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-neon-green focus:outline-none">
-                <i class="fas" :class="mobileMenu ? 'fa-times' : 'fa-bars'" class="text-2xl"></i>
+            <button @click="mobileMenu = !mobileMenu" :aria-expanded="mobileMenu" aria-label="Toggle navigation menu" class="md:hidden text-neon-green focus:ring-2 focus:ring-neon-green focus:outline-none rounded">
+                <i class="fas text-2xl" :class="mobileMenu ? 'fa-times' : 'fa-bars'"></i>
             </button>
         </div>
 
@@ -153,49 +184,123 @@
              
              <!-- Social Links (Mobile) -->
              <div class="flex items-center gap-4 pt-4 border-t border-gray-800">
-                <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a :href="'mailto:' + $store.config.data.personal.email" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
-                    <i class="fas fa-envelope"></i>
-                </a>
+                 <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                     <i class="fab fa-github"></i>
+                 </a>
+                 <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                     <i class="fab fa-linkedin"></i>
+                 </a>
+                 <a :href="'mailto:' + $store.config.data.personal.email" aria-label="Send email" class="w-10 h-10 border border-gray-700 rounded-lg flex items-center justify-center hover:border-neon-green hover:text-white transition-all">
+                     <i class="fas fa-envelope"></i>
+                 </a>
              </div>
         </div>
     </header>
 
-    <main class="pt-24">
+    <main id="main-content" class="pt-32 pb-20 container mx-auto px-6 max-w-4xl relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-15rem)]">
+        <!-- Terminal Window -->
+        <div class="w-full max-w-[700px] h-[450px] bg-cyber-black border border-neon-green/50 rounded-lg shadow-neon overflow-hidden flex flex-col">
+            <!-- Window Title bar -->
+            <div class="bg-cyber-gray border-b border-neon-green/20 px-4 py-3 flex justify-between items-center flex-shrink-0">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                </div>
+                <span class="text-xs text-neon-green font-mono uppercase tracking-wider">upgrade_pipeline.sh</span>
+                <div class="w-12"></div>
+            </div>
 
-
-    <!-- Matrix Rain Background -->
-    <canvas id="matrix-rain" class="fixed inset-0 pointer-events-none z-0 opacity-20"></canvas>
-
-    <div class="relative z-10 max-w-2xl border border-neon-green/50 bg-cyber-black/80 backdrop-blur-sm p-12 shadow-[0_0_20px_rgba(0,255,0,0.2)]">
-        <!-- Warning Icon -->
-        <div class="text-6xl mb-6 animate-pulse">
-            <i class="fas fa-hammer"></i>
+            <!-- Terminal Output -->
+            <div id="terminal-screen" class="flex-1 p-6 font-mono text-sm text-neon-green overflow-y-auto bg-black/90 text-left space-y-2 selection:bg-neon-green selection:text-black">
+                <div class="text-gray-500 font-bold">// SECURE CONNECTION ESTABLISHED //</div>
+                <div id="terminal-logs" class="space-y-1">
+                    <!-- Logs will be written dynamically here -->
+                </div>
+                <div id="terminal-input-line" class="flex items-center gap-2 pt-2 border-t border-gray-900/50 mt-4">
+                    <span class="text-neon-green font-bold">raquel@nexus:~$</span>
+                    <span class="animate-pulse-fast block w-2 h-4 bg-neon-green" id="cursor"></span>
+                </div>
+            </div>
         </div>
 
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-wider glitch-text">
-            System Upgrade <br> In Progress
-        </h1>
-        
-        <div class="h-[2px] w-32 bg-neon-green mx-auto my-6"></div>
+        <!-- Call to Action -->
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a href="index.html" class="px-6 py-3 border border-neon-green text-neon-green font-bold uppercase tracking-widest hover:bg-neon-green/10 transition-all flex items-center gap-2">
+                <i class="fas fa-arrow-left"></i> Return to Base
+            </a>
+            <button onclick="restartCompilation()" class="px-6 py-3 bg-neon-green text-black font-bold uppercase tracking-widest hover:bg-white hover:shadow-neon transition-all flex items-center gap-2">
+                <i class="fas fa-redo-alt"></i> Re-compile
+            </button>
+        </div>
 
-        <p class="text-gray-300 text-lg mb-8 leading-relaxed">
-            This module is currently being compiled. <br>
-            Please check back later for the deployed version.
-        </p>
+        <script>
+            const logs = [
+                { text: "Initializing kernel upgrade...", delay: 500 },
+                { text: "Connecting to secure repository at https://github.com/komradkat...", delay: 800 },
+                { text: "Fetching module objects: 100% (413/413), done.", delay: 600 },
+                { text: "Resolving delta compression... [OK]", delay: 400 },
+                { text: "Detecting environments... Host OS: Windows, Shell: PowerShell", delay: 700 },
+                { text: "Validating Django backend schemas (v6.0.6)... [OK]", delay: 900 },
+                { text: "Hardening cryptographic blind relays (AES-256)... [OK]", delay: 800 },
+                { text: "Optimizing Tailwind CSS v4 assets & CSS bundles... [OK]", delay: 600 },
+                { text: "Compiling local system modules...", delay: 400 },
+                { text: "  -> [0x01] BIMS-Pro: Active", delay: 200 },
+                { text: "  -> [0x02] VoteWise AI: DeepFace anti-spoofing enabled", delay: 200 },
+                { text: "  -> [0x03] Substrata: blind relay handshake active", delay: 200 },
+                { text: "  -> [0x04] StealthText: steganography channels online", delay: 200 },
+                { text: "WARN: security levels exceeded standard limits (Safe Mode Override: OFF)", delay: 800, isWarn: true },
+                { text: "SYSTEM STATUS: UPGRADE IN PROGRESS", delay: 500, isBold: true },
+                { text: "This module is temporarily locked. Check back shortly.", delay: 400 }
+            ];
 
-        <a href="index.html" class="inline-block px-8 py-3 bg-neon-green text-black font-bold uppercase tracking-widest hover:bg-white hover:shadow-neon transition-all">
-            <i class="fas fa-arrow-left mr-2"></i> Return to Base
-        </a>
-    </div>
+            let logIndex = 0;
+            let logTimer = null;
 
+            function addLogLine(log) {
+                const logContainer = document.getElementById("terminal-logs");
+                const screen = document.getElementById("terminal-screen");
+                if (!logContainer || !screen) return;
+
+                const line = document.createElement("div");
+                if (log.isWarn) {
+                    line.className = "text-yellow-500 font-bold";
+                } else if (log.isBold) {
+                    line.className = "text-white font-bold animate-pulse";
+                } else {
+                    line.className = "text-neon-green";
+                }
+                line.innerHTML = `<span class="text-neon-green/40 font-bold">></span> ` + log.text;
+                logContainer.appendChild(line);
+                screen.scrollTop = screen.scrollHeight;
+            }
+
+            function processLogs() {
+                if (logIndex < logs.length) {
+                    addLogLine(logs[logIndex]);
+                    const delay = logs[logIndex].delay;
+                    logIndex++;
+                    logTimer = setTimeout(processLogs, delay);
+                }
+            }
+
+            function restartCompilation() {
+                if (logTimer) clearTimeout(logTimer);
+                const logContainer = document.getElementById("terminal-logs");
+                if (logContainer) logContainer.innerHTML = "";
+                logIndex = 0;
+                processLogs();
+            }
+
+            // Start simulation on load or swap
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", () => setTimeout(processLogs, 1000));
+            } else {
+                setTimeout(processLogs, 1000);
+            }
+        </script>
+    </main>
     <script src="config.js"></script>
-    <script src="assets/js/matrix-rain.js"></script>
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.store('config', {
@@ -203,16 +308,10 @@
                     personal: { name: 'Loading...', initials: '...' },
                     projects: [],
                     navigation: {}
-                },
-                init() {
-                    if (window.siteConfig) {
-                        this.data = window.siteConfig;
-                    }
                 }
             });
         });
     </script>
-    </main>
     <footer x-data class="bg-cyber-black border-t border-neon-green/20 pt-16 pb-8 text-gray-400 mt-auto">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -273,10 +372,10 @@
                         <span class="w-2 h-2 bg-neon-green"></span> Connect
                     </h4>
                     <div class="flex gap-4">
-                        <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                        <a :href="$store.config.data.social.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                             <i class="fab fa-github text-lg group-hover:scale-110 transition-transform"></i>
                         </a>
-                        <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
+                        <a :href="$store.config.data.social.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 border border-gray-800 rounded flex items-center justify-center hover:border-neon-green hover:text-white transition-all group">
                             <i class="fab fa-linkedin-in text-lg group-hover:scale-110 transition-transform"></i>
                         </a>
                     </div>
@@ -295,11 +394,13 @@
                 <div class="flex gap-6">
                     <span class="text-gray-600">v1.2.0-stable</span>
                     <a href="#top" class="text-neon-green hover:text-white transition-colors flex items-center gap-2">
-                        BACK TO TOP <i class="fas fa-arrow-up"></i>
+                        BACK TO TOP <i class="fas fa-arrow-up" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- Background script for Matrix Rain -->
+    <script src="assets/js/matrix-rain.js" defer></script>
 </body>
 </html>
